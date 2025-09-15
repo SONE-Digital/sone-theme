@@ -1,0 +1,91 @@
+---
+description: This rule is for scaffolding react modules using CSS modules instead of other CSS in JS solutions.
+globs:
+alwaysApply: false
+---
+# Scaffold react module
+
+## Your task
+
+Your task is to simply create the general structure / scaffold for a new react module.
+
+Follow these steps to do so:
+
+1. Make a directory inside of `/src/unified-theme/components/modules` with the name of the module in camel case.
+2. Create an index.tsx file inside of that new directory.
+3. Create a styles.module.css file inside of that new directory
+4. Create a blank fields.tsx file inside of that new directory.
+5. Import the new files into the index file.
+6. Populate the rest of the index file based off of the scaffold example below.
+
+Index.tsx file example.
+```tsx
+  import styles from './styles.module.css';
+
+  export const Component = (props) => {
+    const {text} = props
+
+    return (
+      <div className={styles['defaultContainer']}>
+        <h1>Scaffold default content</h1>
+        <p>{ text }</p>
+      </div>
+    );
+  };
+
+  export const meta = {
+    label: 'Scaffold module', // Can replace this with a label that makes sense
+    content_types: ['SITE_PAGE'],
+  };
+
+  export { fields } from './fields.tsx';
+
+  export const defaultModuleConfig = {
+    moduleName: 'elevate/components/modules/scaffold_module', // Can replace this with snake case name that makes sense
+    version: 0,
+    themeModule: true
+  };
+```
+
+Default fields file example
+```tsx
+  import {
+    ModuleFields,
+    TextField
+  } from '@hubspot/cms-components/fields';
+
+  export const fields = (
+    <ModuleFields>
+      <TextField
+        label="Text"
+        name="text"
+        default="Scaffold content"
+      />
+    </ModuleFields>
+  );
+```
+
+Default styles.module.css file example
+```css
+.defaultContainer {
+  display: block;
+  width: 100%;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
