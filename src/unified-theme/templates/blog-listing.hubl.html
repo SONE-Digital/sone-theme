@@ -8,58 +8,78 @@
 
 {% block body %}
 
-{% dnd_area 'main'%}
-  {% dnd_section
-    padding={
-      "default" : {
-        "bottom" : spacing_32
-      }
-    }
-  %}
-    {% dnd_column
-    %}
-      {% dnd_row %}
-        {% dnd_module
-          path="../components/modules/Heading",
-          groupStyle={
-            "alignment" : {
-              "text_align" : "CENTER"
-            }
-          },
-          headingAndTextHeading={{ group.public_title }}
-        %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-      {% dnd_row %}
-        {% dnd_module
-          path="../components/modules/RichText",
-        %}
-          {% module_attribute "richTextContentHTML" %}
-            <p style="text-align: center;">{{ template_translations.blog_listing_page_description.message }}</p>
-          {% end_module_attribute %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-    {% end_dnd_column %}
-  {% end_dnd_section %}
+<div class="blog-listing">
+  <!-- Hero Section -->
+  <section class="blog-hero">
+    <div class="blog-container">
+      <h1 class="blog-title">{{ group.public_title }}</h1>
+      <p class="blog-subtitle">{{ template_translations.blog_listing_page_description.message or "Stay up to date with the latest news and insights" }}</p>
+    </div>
+  </section>
 
-  {% dnd_section
-    padding={
-      "default" : {
-        "top" : spacing_32
-      }
-    }
-  %}
-    {% dnd_column
-    %}
-      {% dnd_row %}
-        {% dnd_module
-          path="../components/modules/BlogListing",
-        %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
-    {% end_dnd_column %}
-  {% end_dnd_section %}
+  <!-- Blog Grid -->
+  <section class="blog-grid">
+    <div class="blog-container">
 
-{% end_dnd_area %}
+      <!-- Blog Posts -->
+      <div class="blog-posts-grid">
+        {% for content in contents %}
+          <article class="blog-card">
+            {% if content.featured_image %}
+              <div class="blog-card-image">
+                <a href="{{ content.absolute_url }}">
+                  <img src="{{ content.featured_image|resize_image_url(600, 400) }}" alt="{{ content.featured_image_alt_text }}" />
+                </a>
+              </div>
+            {% endif %}
+
+            <div class="blog-card-content">
+              {% if content.topic_list|length > 0 %}
+                <div class="blog-tags">
+                  {% for topic in content.topic_list %}
+                    {% if loop.index <= 2 %}
+                      <span class="blog-tag">{{ topic.name }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <h2 class="blog-card-title">
+                <a href="{{ content.absolute_url }}">{{ content.name }}</a>
+              </h2>
+
+              <p class="blog-card-excerpt">{{ content.post_summary|truncate(160) }}</p>
+
+              <div class="blog-card-meta">
+                <time datetime="{{ content.publish_date }}">{{ content.publish_date|format_date('medium') }}</time>
+                {% if content.blog_author.display_name %}
+                  <span class="blog-author">by {{ content.blog_author.display_name }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if contents.total_count > contents.per_page %}
+        <div class="blog-pagination">
+          {% if contents.has_previous %}
+            <a href="{{ contents.previous_page_url }}" class="blog-btn blog-btn-outline">← Previous</a>
+          {% endif %}
+
+          <span class="blog-pagination-info">
+            Page {{ contents.current_page }} of {{ contents.total_pages }}
+          </span>
+
+          {% if contents.has_next %}
+            <a href="{{ contents.next_page_url }}" class="blog-btn blog-btn-outline">Next →</a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+  </section>
+</div>
 
 {% endblock %}
