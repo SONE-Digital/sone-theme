@@ -539,3 +539,90 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
     gap: 15px;
   }
 }
+
+/* Header Styles - LexJet Tailwind Header Replica */
+header {
+  background-color: white !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+header > div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1440px !important;
+  height: 98px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  position: relative !important;
+}
+
+@media (min-width: 576px) {
+  header > div {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  header > div {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
+
+/* Logo styling */
+header img[alt*="Logo"] {
+  width: 131px !important;
+  height: 32px !important;
+  object-fit: cover !important;
+}
+
+/* Navigation container */
+header > div > div:last-child {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.28px !important;
+  color: #232323 !important;
+  white-space: nowrap !important;
+}
+
+/* Navigation links */
+header .btn-link {
+  color: #232323 !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.28px !important;
+  transition: color 0.2s ease !important;
+}
+
+header .btn-link:hover {
+  color: #002855 !important;
+  text-decoration: none !important;
+}
+
+/* Responsive navigation - hide some links on small screens */
+@media (max-width: 599px) {
+  header .btn-link[href*="tel"],
+  header .btn-link[href*="CONTACT"] {
+    display: none !important;
+  }
+}
+
+/* Divider line at bottom of header */
+header img[alt*="Divider"] {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+}
