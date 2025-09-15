@@ -88,8 +88,8 @@ result = result.replace(/{{\s*typographySection\s*}}/g, typographySection);
 function convertPathsForMockup(content) {
   // Handle both old relative paths and new absolute paths
   return content
-    .replace(/src="\.\.\/\.\.\/\.\.\/src\/sone-theme\/images\//g, 'src="/src/sone-theme/images/')
-    .replace(/src="\/src\/sone-theme\/images\//g, 'src="/src/sone-theme/images/');
+    .replace(/src="\.\.\/\.\.\/\.\.\/src\/unified-theme\/images\//g, 'src="/src/unified-theme/images/')
+    .replace(/src="\/src\/unified-theme\/images\//g, 'src="/src/unified-theme/images/');
 }
 
 // Load and replace component placeholders
