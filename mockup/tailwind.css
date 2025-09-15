@@ -1,0 +1,49 @@
+/* C:\HubSpot\mockup\tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The @layer components block below is NOT strictly necessary if your plugin adds the classes */
+/* directly, but if you prefer to keep it as a placeholder/reference, it's fine for v3. */
+/* Just make sure it's empty if the plugin is responsible for definitions. */
+
+/* @layer components {
+    .text-h1 {}
+    .text-h2 {}
+    .text-h3 {}
+    .text-h4 {}
+    .text-h5 {}
+    .text-h6 {}
+    .text-h7 {}
+    .text-h8 {}
+    .text-h9 {}
+    .text-h10 {}
+    .text-h11 {}
+    .text-h12 {}
+    .text-h13 {}
+    .text-h14 {}
+    .text-h15 {}
+    .text-h16 {}
+
+    .btn {}
+    .btn-primary {}
+    .btn-secondary {}
+    .swatch-box {}
+    .swatch-label {}
+} */
+
+/* Any other custom CSS you have can go here */
+
+/* Custom styles for full-width DND sections */
+@layer components {
+  .full-width-section {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  .full-width-section .dnd-section,
+  .full-width-section .container {
+    max-width: none !important;
+    width: 100% !important;
+  }
+}

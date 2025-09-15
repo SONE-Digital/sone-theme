@@ -11,7 +11,11 @@
     "test": "vitest",
     "test-verbose": "vitest --reporter verbose",
     "npm-install:all": "npm install && npm install --prefix src/unified-theme",
-    "yarn-install:all": "yarn && cd src/unified-theme && yarn install"
+    "yarn-install:all": "yarn && cd src/unified-theme && yarn install",
+    "mock": "node run-mock.js",
+    "deploy-project": "node run-mock.js && git add . && git commit -m \"*\" && git push",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "prettier": "prettier . --check"
   },
   "author": "HubSpot Content Assets Team",
   "license": "Apache-2.0",
@@ -26,7 +30,13 @@
     "postcss-nesting": "^12.0.1",
     "postcss-preset-env": "^9.1.1",
     "vite": "^4.4.9",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "@hubspot/cli": "latest",
+    "@hubspot/prettier-plugin-hubl": "latest",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "prettier": "^2.7.1"
   },
   "browserslist": [
     "defaults"

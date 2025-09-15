@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-One Theme Style Guides</title>
+    <link rel="stylesheet" href="/mockup/assets/css/lexjet-theme.css">
+    <style>
+        body { 
+            font-family: system-ui, sans-serif; 
+            margin: 0; 
+            padding: 2rem; 
+            background: #f5f5f5; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+        h1 { color: #333; margin-bottom: 2rem; }
+        .theme-grid { 
+            display: grid; 
+            gap: 1rem; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        }
+        .theme-card { 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            padding: 1.5rem; 
+            text-align: center; 
+            background: #fafafa;
+            transition: transform 0.2s;
+        }
+        .theme-card:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+        }
+        .theme-card a { 
+            text-decoration: none; 
+            color: #0066cc; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .theme-card a:hover { color: #004499; }
+        .description { color: #666; margin-top: 0.5rem; font-size: 0.9rem; }
+        section { 
+            margin-bottom: 3rem; 
+            padding: 1.5rem 0; 
+        }
+        section:not(:last-of-type) { 
+            border-bottom: 2px solid #eee; 
+        }
+        h2 { 
+            color: #444; 
+            margin-bottom: 1rem; 
+            font-size: 1.5rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 S-One Themes</h1>
+        
+        <!-- Style Guides Section -->
+        <section>
+            <h2>📖 Style Guides</h2>
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/lexjet-theme.html" target="_blank">LexJet Style Guide</a>
+                    <div class="description">Complete style guide with typography, components, and layouts</div>
+                </div>
+                
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/digiprint-theme.html" target="_blank">DigiPrint Style Guide</a>
+                    <div class="description">Complete style guide for DigiPrint brand</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LexJet Section -->
+        <section>
+            <h2>🔷 LexJet Pages</h2>
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/lexjet-capital-equipment.html" target="_blank">Capital Equipment</a>
+                    <div class="description">Specialized page layout for capital equipment</div>
+                </div>
+                
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/lexjet-capital-writeoffs.html" target="_blank">Capital Writeoffs</a>
+                    <div class="description">Specialized page layout for capital writeoffs</div>
+                </div>
+                
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/lexjet-canon-colorado.html" target="_blank">Canon Colorado</a>
+                    <div class="description">Product showcase page for Canon Colorado M-Series printers</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DigiPrint Section -->
+        <section>
+            <h2>🟢 DigiPrint Pages</h2>
+            <div class="theme-grid">
+                <div class="theme-card">
+                    <a href="/mockup/templates/pages/digiprint-capital-writeoffs.html" target="_blank">Capital Writeoffs</a>
+                    <div class="description">DigiPrint branded writeoffs page</div>
+                </div>
+            </div>
+        </section>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee; color: #666; text-align: center;">
+            <p>🚀 Live server running on port 3000</p>
+            <p>💡 Use <code>npm run build-mock</code> to regenerate templates and CSS</p>
+        </div>
+    </div>
+</body>
+</html>
