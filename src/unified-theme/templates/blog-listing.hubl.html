@@ -11,7 +11,7 @@
 
 <div class="blog-listing">
   <!-- Hero Section -->
-  <section class="blog-hero">
+  <section class="blog-hero" style="background-image: url('{{ get_asset_url("../../../images/lexjet/printer-background.png") }}');">
     <div class="blog-container">
       <h1 class="blog-title">{{ group.public_title }}</h1>
       <p class="blog-subtitle">{{ template_translations.blog_listing_page_description.message or "Stay up to date with the latest news and insights" }}</p>
@@ -35,7 +35,7 @@
             {% if content.featured_image %}
               <div class="blog-card-image">
                 <a href="{{ content.absolute_url }}">
-                  <img src="{{ content.featured_image|resize_image_url(600, 400) }}" alt="{{ content.featured_image_alt_text }}" onerror="this.parentElement.innerHTML='<div style=&quot;background:#f8f9fa;display:flex;align-items:center;justify-content:center;min-height:200px;color:#dc3545;&quot;>Image failed to load: {{ content.featured_image|truncate(50) }}</div>'" />
+                  <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" />
                 </a>
               </div>
             {% else %}
