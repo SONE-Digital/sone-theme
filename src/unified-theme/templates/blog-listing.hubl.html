@@ -35,8 +35,13 @@
             {% if content.featured_image %}
               <div class="blog-card-image">
                 <a href="{{ content.absolute_url }}">
-                  <img src="{{ content.featured_image|resize_image_url(600, 400) }}" alt="{{ content.featured_image_alt_text }}" />
+                  <img src="{{ content.featured_image|resize_image_url(600, 400) }}" alt="{{ content.featured_image_alt_text }}" onerror="this.parentElement.innerHTML='<div style=&quot;background:#f8f9fa;display:flex;align-items:center;justify-content:center;min-height:200px;color:#dc3545;&quot;>Image failed to load: {{ content.featured_image|truncate(50) }}</div>'" />
                 </a>
+              </div>
+            {% else %}
+              <!-- Debug: No featured image -->
+              <div class="blog-card-image" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 200px; color: #6c757d;">
+                No featured image set
               </div>
             {% endif %}
 
