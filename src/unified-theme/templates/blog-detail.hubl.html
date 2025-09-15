@@ -7,6 +7,20 @@
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
 {% extends "./layouts/base.hubl.html" %}
 
+{% block header %}
+  <style>
+    /* Ensure Tailwind header works with Bootstrap blog styles */
+    header { position: sticky !important; top: 0 !important; z-index: 1050 !important; }
+    header .bg-white { background-color: white !important; }
+    header .shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; }
+    header .flex { display: flex !important; }
+    header .items-center { align-items: center !important; }
+    header .ml-auto { margin-left: auto !important; }
+    header .space-x-6 > * + * { margin-left: 1.5rem !important; }
+  </style>
+  {% include "../partials/header.hubl.html" %}
+{% endblock header %}
+
 {% block body %}
 
 <div class="hs-elevate-content-wrapper">
