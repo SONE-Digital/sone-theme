@@ -355,10 +355,27 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
 
 /* Hero Section */
 .blog-hero {
-  background: linear-gradient(135deg, #002855 0%, #007BFF 100%);
+  background: url('{{ get_asset_url("../../images/lexjet/printer-background.png") }}') center/cover;
   color: white;
   padding: 80px 0;
   text-align: center;
+  position: relative;
+}
+
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 40, 85, 0.7);
+  z-index: 1;
+}
+
+.blog-hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .blog-title {
