@@ -16,7 +16,10 @@ try {
 } catch (err) {
   console.warn("⚠️ Could not read site config, using default:", DEPLOY_SITE);
 }
-console.log(`🎯 Deploying templates for site: ${DEPLOY_SITE}`);
+
+// Extract base site name (remove -sandbox suffix for template filtering)
+const BASE_SITE = DEPLOY_SITE.replace('-sandbox', '');
+console.log(`🎯 Deploying templates for site: ${DEPLOY_SITE} (base: ${BASE_SITE})`);
 
 
 console.log("📌 Running from:", process.cwd());
@@ -235,7 +238,7 @@ for (const file of files) {
     
     // Check if this is a site-specific template
     const isSiteSpecific = fileNameParts.length > 1 && ["lexjet", "digiprint", "hp", "kodak"].includes(potentialSitePrefix);
-    const isForCurrentSite = !isSiteSpecific || potentialSitePrefix === DEPLOY_SITE;
+    const isForCurrentSite = !isSiteSpecific || potentialSitePrefix === BASE_SITE;
     
     content = replaceComponents(content);
     content = replaceAssetPaths(content);
@@ -247,7 +250,7 @@ for (const file of files) {
     } else {
       // Template is for a different site - hide it
       content = wrapWithHubSpotBlocks(content, label, potentialSitePrefix, false);
-      console.log(`✔ Processed (hidden for ${DEPLOY_SITE}): ${file}`);
+      console.log(`✔ Processed (hidden for ${BASE_SITE}): ${file}`);
     }
 
     fs.writeFileSync(outputPath, content, "utf8");

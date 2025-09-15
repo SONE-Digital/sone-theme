@@ -13,8 +13,8 @@
   <!-- Hero Section -->
   <section class="blog-hero" style="background-image: url('{{ get_asset_url("../images/lexjet/printer-background.png") }}');">
     <div class="blog-container">
-      <h1 class="blog-title">{{ group.public_title }}</h1>
-      <p class="blog-subtitle">{{ template_translations.blog_listing_page_description.message or "Stay up to date with the latest news and insights" }}</p>
+      <h1 class="blog-title">LexJet Blog</h1>
+      <p class="blog-subtitle">Stay up to date with the latest news and insights</p>
     </div>
   </section>
 
@@ -31,44 +31,59 @@
         {% endif %}
 
         {% for content in contents %}
-          <article class="blog-card">
+          <article class="blog-listing__post card--light" aria-label="Blog post summary: {{ content.name }}">
+
             {% if content.featured_image %}
-              <div class="blog-card-image">
-                <a href="{{ content.absolute_url }}">
-                  <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" />
-                </a>
-              </div>
-            {% else %}
-              <!-- Debug: No featured image -->
-              <div class="blog-card-image" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 200px; color: #6c757d;">
-                No featured image set
-              </div>
+              <a class="blog-listing__post-image-wrapper" href="{{ content.absolute_url }}" aria-label="Featured image: {{ content.name }} - Read full post: {{ content.name }}">
+                <img class="blog-listing__post-image" src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" loading="lazy" />
+              </a>
             {% endif %}
 
-            <div class="blog-card-content">
-              {% if content.topic_list|length > 0 %}
-                <div class="blog-tags">
-                  {% for topic in content.topic_list %}
-                    {% if loop.index <= 2 %}
-                      <span class="blog-tag">{{ topic.name }}</span>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {% endif %}
+            <div class="blog-listing__post-content">
+              <div class="blog-listing__header">
 
-              <h2 class="blog-card-title">
-                <a href="{{ content.absolute_url }}">{{ content.name }}</a>
-              </h2>
-
-              <p class="blog-card-excerpt">{{ content.post_summary|truncate(160) }}</p>
-
-              <div class="blog-card-meta">
-                <time datetime="{{ content.publish_date }}">{{ content.publish_date|format_date('medium') }}</time>
-                {% if content.blog_author.display_name %}
-                  <span class="blog-author">by {{ content.blog_author.display_name }}</span>
+                {% if content.topic_list|length > 0 %}
+                  <div class="blog-listing__post-tags">
+                    {% for topic in content.topic_list %}
+                      {% if loop.index <= 2 %}
+                        <a class="blog-listing__post-tag" href="/blog/tag/{{ topic.slug }}">{{ topic.name }}</a>{% if not loop.last and loop.index < 2 %}<span>, </span>{% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </div>
                 {% endif %}
+
+                <div class="blog-listing__post-time-read">
+                  <div class="blog-listing__post-time-read-icon"></div>
+                  {{ content.read_time or '5' }} min read.
+                </div>
+
+                <h2 class="blog-listing__post-title">
+                  <a class="blog-listing__post-title-link" href="{{ content.absolute_url }}">{{ content.name }}</a>
+                </h2>
+
+                <div class="blog-listing__date_author">
+                  {% if content.blog_author.display_name %}
+                    <div class="blog-listing__post-author">
+                      {% if content.blog_author.avatar %}
+                        <div class="blog-listing__post-author-image-wp">
+                          <img class="blog-listing__post-author-image" src="{{ content.blog_author.avatar }}" width="50" loading="lazy" alt="Picture of {{ content.blog_author.display_name }}" />
+                        </div>
+                      {% endif %}
+                      <a class="blog-listing__post-author-name" href="/blog/author/{{ content.blog_author.slug }}">{{ content.blog_author.display_name }}</a>
+                    </div>
+                  {% endif %}
+
+                  <time class="blog-listing__post-timestamp" datetime="{{ content.publish_date }}">
+                    {{ content.publish_date|format_date('MMM d, \'yy') }}
+                  </time>
+                </div>
+              </div>
+
+              <div class="blog-listing__post-summary">
+                {{ content.post_summary|truncate(120) }}
               </div>
             </div>
+
           </article>
         {% endfor %}
       </div>

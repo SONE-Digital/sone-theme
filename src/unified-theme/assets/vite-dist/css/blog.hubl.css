@@ -621,12 +621,17 @@ header .btn-link {
   font-size: 14px !important;
   font-weight: 600 !important;
   letter-spacing: 0.28px !important;
-  transition: color 0.2s ease !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
 }
 
 header .btn-link:hover {
   color: #002855 !important;
+  background-color: rgba(0, 40, 85, 0.1) !important;
   text-decoration: none !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Responsive navigation - hide some links on small screens */

@@ -13,7 +13,7 @@
     "npm-install:all": "npm install && npm install --prefix src/unified-theme",
     "yarn-install:all": "yarn && cd src/unified-theme && yarn install",
     "mock": "node run-mock.js",
-    "deploy-project": "npm run build && node run-mock.js && git add . && git commit -m \"*\" && git push",
+    "deploy-project": "npm run build && node run-mock.js && node deploy-to-branch.js",
     "lint:js": "eslint . --ext .js,.jsx",
     "prettier": "prettier . --check"
   },
