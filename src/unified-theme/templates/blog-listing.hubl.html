@@ -24,6 +24,12 @@
 
       <!-- Blog Posts -->
       <div class="blog-posts-grid">
+        {% if contents %}
+          {{ contents|length }} blog posts found
+        {% else %}
+          <p>No blog posts available. Make sure you have published blog posts in HubSpot.</p>
+        {% endif %}
+
         {% for content in contents %}
           <article class="blog-card">
             {% if content.featured_image %}
