@@ -13,7 +13,9 @@
     "run-mockup": "npm run build-mockup && npm run serve",
     "deploy-mockup": "npm run build-mockup && cd .. && npm run deploy-project",
     "upload:hubl": "cd .. && hs project upload",
-    "mock2": "npm run build-css && npm run build-mock && npx tailwindcss --config ./tailwind.config.js -o ./themes/lexjet/lexjet-theme.css --watch"
+    "mock2": "npm run build-css && npm run build-mock && npx tailwindcss --config ./tailwind.config.js -o ./themes/lexjet/lexjet-theme.css --watch",
+    "switch-site": "if [ -z \"$npm_config_site\" ]; then echo \"Usage: npm run switch-site --site=SITE_NAME --branch=BRANCH_NAME\"; exit 1; fi && if [ -z \"$npm_config_branch\" ]; then echo \"Usage: npm run switch-site --site=SITE_NAME --branch=BRANCH_NAME\"; exit 1; fi && cd .. && git checkout $npm_config_branch && cd mockup && node set-site.js $npm_config_site",
+    "which-site": "cd .. && echo \"Git branch: $(git branch --show-current)\" && cd mockup && echo \"Site config: $(cat .site-config 2>/dev/null || echo 'No site configured')\""
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
