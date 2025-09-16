@@ -144,6 +144,7 @@
   max-width: 450px;
   margin: 0 auto;
   position: relative;
+  z-index: 10;
 }
 
 /* Style HubSpot's search input wrapper */
@@ -163,7 +164,7 @@
   border-radius: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .blog-search-input form:focus-within {
@@ -173,18 +174,15 @@
 
 .blog-search-input input[type="search"] {
   flex: 1;
-  width: calc(100% - 60px);
-  padding: 15px 20px 15px 50px;
+  width: calc(100% - 70px);
+  padding: 15px 20px;
   border: none;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
   font-size: 16px;
   outline: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  background-size: 20px 20px;
+  background-image: none;
 }
 
 .blog-search-input input[type="search"]:focus {
@@ -201,8 +199,8 @@
 .blog-search-input button,
 .blog-search-input input[type="submit"] {
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 54px;
   border: none;
   background: transparent;
   color: #666;
@@ -231,13 +229,23 @@
 .blog-search-input button:empty:after,
 .blog-search-input input[type="submit"]:empty:after {
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   display: block;
+}
+
+/* Style any existing search icon in the button */
+.blog-search-input button svg,
+.blog-search-input input[type="submit"] svg,
+.blog-search-input button i,
+.blog-search-input input[type="submit"] i {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
 }
 
 /* Mobile responsiveness */
@@ -255,20 +263,25 @@
 /* Style HubSpot search autocomplete/dropdown suggestions */
 .blog-search-input .hs-search-suggestions,
 .blog-search-input .hs-search-dropdown,
-.blog-search-input [data-search-dropdown] {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
-  overflow-y: auto;
-  margin-top: -1px;
+.blog-search-input [data-search-dropdown],
+.blog-search-container .hs-search-suggestions,
+.blog-search-container .hs-search-dropdown,
+.blog-search-container [data-search-dropdown] {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  background-color: white !important;
+  border: 1px solid #ddd !important;
+  border-top: none !important;
+  border-radius: 0 0 12px 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  margin-top: -1px !important;
+  display: block !important;
+  width: 100% !important;
 }
 
 .blog-search-input .hs-search-suggestion,
