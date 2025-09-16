@@ -5,7 +5,6 @@
   screenshotPath: '../images/template-previews/blog-listing.png'
 -->
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
-{% set lexjet_css = "../../assets/vite-dist/css/lexjet-theme.hubl.css" %}
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
@@ -20,7 +19,52 @@
   %}
     {% dnd_column
     %}
-      {% include "./partials/header.hubl.html" %}
+      <header class="blog-header">
+        <!-- Divider line -->
+        <img
+          src="{{ get_asset_url('../../images/lexjet/capital-equipment/divider-line.svg') }}"
+          alt="Divider line"
+          class="divider-line"
+        />
+
+        <div class="container">
+          <!-- Logo -->
+          <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
+            <img
+              src="{{ get_asset_url('../../images/lexjet/lexjet-logo.png') }}"
+              alt="LexJet Logo"
+              class="logo"
+            />
+          </a>
+
+          <!-- Navigation -->
+          <div class="nav">
+            <a
+              href="https://www.lexjet.com"
+              class="btn-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SHOP LEXJET.COM
+            </a>
+
+            <!-- Hide below 600px -->
+            <a
+              href="tel:8004539538"
+              class="btn-link hide-mobile"
+            >
+              800-453-9538
+            </a>
+
+            <a
+              href="https://www.lexjet.com"
+              class="btn-link hide-mobile"
+            >
+              CONTACT US
+            </a>
+          </div>
+        </div>
+      </header>
       {% dnd_row %}
         {% dnd_module
           path="../components/modules/RichText",
