@@ -5,93 +5,62 @@
   screenshotPath: '../images/template-previews/blog-listing.png'
 -->
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
-{% extends "./layouts/lexjet.hubl.html" %}
+{% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
 
-<div class="blog-listing">
-  <!-- Hero Section - Updated for sandbox -->
-  <section class="blog-hero" style="background-image: url('{{ get_asset_url("../images/lexjet/printer-background.png") }}');">
-    <div class="blog-container">
-      <h1 class="blog-title">LexJet Blog</h1>
-      <p class="blog-subtitle">Stay up to date with the latest news and insights</p>
-    </div>
-  </section>
+{% dnd_area 'main'%}
+  {% dnd_section
+    padding={
+      "default" : {
+        "bottom" : spacing_32
+      }
+    }
+  %}
+    {% dnd_column
+    %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/Heading",
+          groupStyle={
+            "alignment" : {
+              "text_align" : "CENTER"
+            }
+          },
+          headingAndTextHeading={{ group.public_title }}
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/RichText",
+        %}
+          {% module_attribute "richTextContentHTML" %}
+            <p style="text-align: center;">{{ template_translations.blog_listing_page_description.message }}</p>
+          {% end_module_attribute %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
 
-  <!-- Blog Grid -->
-  <section class="blog-grid">
-    <div class="blog-container">
+  {% dnd_section
+    padding={
+      "default" : {
+        "top" : spacing_32
+      }
+    }
+  %}
+    {% dnd_column
+    %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/BlogListing",
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
 
-      <!-- Blog Posts using HubSpot Elevate classes -->
-      <div class="hs-elevate-blog-recent-posts__card-container">
-        {% for content in contents %}
-          <article class="hs-elevate-card--recent-post hs-elevate-card--variant-2">
-            <a class="hs-elevate-card--recent-post__link" href="{{ content.absolute_url|escape_url }}">
-              {% if content.featured_image and group.use_featured_image_in_summary %}
-                <div class="hs-elevate-card--recent-post__image-container">
-                  <img src="{{ content.featured_image|escape_url }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}">
-                </div>
-              {% endif %}
-
-              <div class="hs-elevate-card--recent-post__content-container">
-                {% if content.topic_list|length > 0 %}
-                  <div class="hs-elevate-card--recent-post__tag-container">
-                    {% for topic in content.topic_list %}
-                      {% if loop.index <= 3 %}
-                        <span class='hs-elevate-tag'>{{ topic.name|sanitize_html }}</span>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-
-                <h3 class="hs-elevate-card--recent-post__title">{{ content.name|sanitize_html }}</h3>
-
-                {% if content.post_summary %}
-                  <p class="hs-elevate-card--recent-post__excerpt">{{ content.post_summary|truncate(120) }}</p>
-                {% endif %}
-
-                <div class="hs-elevate-blog-meta">
-                  {% if content.blog_author.display_name %}
-                    <span class="hs-elevate-blog-meta__author">{{ content.blog_author.display_name|sanitize_html }}</span>
-                  {% endif %}
-                  {{ '<span class="hs-elevate-blog-meta__separator">|</span>' if content.blog_author.display_name and content.publish_date }}
-                  {% if content.publish_date %}
-                    <time datetime="{{ content.publish_date }}" class="hs-elevate-blog-meta__date">{{ content.publish_date|format_date('medium') }}</time>
-                  {% endif %}
-                </div>
-              </div>
-            </a>
-          </article>
-        {% endfor %}
-      </div>
-
-      <!-- Pagination -->
-      {% if contents.total_page_count > 1 %}
-        <div class="hs-elevate-pagination">
-          {% if contents.previous_page_num %}
-            <a href="{{ blog_page_link(contents.previous_page_num) }}" class="hs-elevate-button hs-elevate-button--secondary">
-              ← Previous
-            </a>
-          {% endif %}
-
-          {% for page_num in range(1, contents.total_page_count + 1) %}
-            {% if page_num == current_page_num %}
-              <span class="hs-elevate-pagination__current">{{ page_num }}</span>
-            {% elif page_num <= current_page_num + 2 and page_num >= current_page_num - 2 %}
-              <a href="{{ blog_page_link(page_num) }}" class="hs-elevate-pagination__link">{{ page_num }}</a>
-            {% endif %}
-          {% endfor %}
-
-          {% if contents.next_page_num %}
-            <a href="{{ blog_page_link(contents.next_page_num) }}" class="hs-elevate-button hs-elevate-button--secondary">
-              Next →
-            </a>
-          {% endif %}
-        </div>
-      {% endif %}
-
-    </div>
-  </section>
-</div>
+{% end_dnd_area %}
 
 {% endblock %}
