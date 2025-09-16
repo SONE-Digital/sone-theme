@@ -124,6 +124,44 @@
   }
 }
 
+/* Blog Search Section */
+.blog-search-section {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.blog-search-container {
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.blog-search-input {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 20px 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.blog-search-input:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.blog-search-input::placeholder {
+  color: #999;
+}
+
 /* Blog Post */
 .hs-elevate-blog-image-container {
   position: relative;
