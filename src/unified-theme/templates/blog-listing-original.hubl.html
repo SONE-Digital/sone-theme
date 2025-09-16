@@ -1,0 +1,110 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Blog listing
+  screenshotPath: '../images/template-previews/blog-listing.png'
+-->
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+<div class="max-w-6xl mx-auto px-4 py-16">
+  
+  <!-- Blog Header -->
+  <div class="text-center mb-16">
+    <h1 class="text-h1 text-black mb-4">{{ group.public_title }}</h1>
+    <p class="text-lg text-gray-600">{{ template_translations.blog_listing_page_description.message }}</p>
+  </div>
+
+  <!-- Blog Posts Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    {% for content in contents %}
+      <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+        
+        {% if content.featured_image %}
+          <div class="relative overflow-hidden w-full bg-gray-100" style="aspect-ratio: 1.5;">
+            <img 
+              src="{{ content.featured_image }}" 
+              alt="{{ content.featured_image_alt_text|escape_attr }}"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+        {% endif %}
+
+        <div class="p-6">
+          
+          <!-- Tags -->
+          {% if content.topic_list|length > 0 %}
+            <div class="flex flex-wrap gap-2 mb-4">
+              {% for topic in content.topic_list %}
+                {% if loop.index <= 3 %}
+                  <span class="inline-block px-3 py-1 text-xs font-medium bg-primary text-white rounded-full">
+                    {{ topic.name|sanitize_html }}
+                  </span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <!-- Title -->
+          <h2 class="text-xl font-semibold text-black mb-3 hover:text-primary transition-colors">
+            <a href="{{ content.absolute_url }}" class="no-underline">{{ content.name|sanitize_html }}</a>
+          </h2>
+
+          <!-- Excerpt -->
+          {% if content.meta_description %}
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ content.meta_description|truncate(120) }}</p>
+          {% endif %}
+
+          <!-- Meta -->
+          <div class="flex items-center justify-between text-xs text-gray-500">
+            {% if content.blog_author.display_name %}
+              <span>{{ content.blog_author.display_name }}</span>
+            {% endif %}
+            {% if content.publish_date %}
+              <time datetime="{{ content.publish_date }}">{{ content.publish_date|format_date('medium') }}</time>
+            {% endif %}
+          </div>
+
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if contents.total_page_count > 1 %}
+    <div class="flex justify-center items-center space-x-2">
+      
+      {% if contents.previous_page_num %}
+        <a href="{{ blog_page_link(contents.previous_page_num) }}" 
+           class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+          ← Previous
+        </a>
+      {% endif %}
+
+      {% for page_num in range(1, contents.total_page_count + 1) %}
+        {% if page_num == current_page_num %}
+          <span class="px-4 py-2 border border-primary bg-primary text-white rounded-md text-sm font-medium">
+            {{ page_num }}
+          </span>
+        {% elif page_num <= current_page_num + 2 and page_num >= current_page_num - 2 %}
+          <a href="{{ blog_page_link(page_num) }}" 
+             class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+            {{ page_num }}
+          </a>
+        {% endif %}
+      {% endfor %}
+
+      {% if contents.next_page_num %}
+        <a href="{{ blog_page_link(contents.next_page_num) }}" 
+           class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+          Next →
+        </a>
+      {% endif %}
+      
+    </div>
+  {% endif %}
+
+</div>
+
+{% endblock %}

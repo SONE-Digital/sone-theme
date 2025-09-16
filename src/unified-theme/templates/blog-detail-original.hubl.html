@@ -1,0 +1,142 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Blog post
+  screenshotPath: '../images/template-previews/blog-post.png'
+-->
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+<div class="max-w-6xl mx-auto px-4">
+
+  {% if content.featured_image %}
+    <div class="relative overflow-hidden w-full rounded-3xl my-10" style="aspect-ratio: 2.2;">
+      <img src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}" class="relative h-full w-full object-cover object-center">
+    </div>
+  {% endif %}
+
+  <section class="max-w-4xl mx-auto px-4 my-10">
+    {% if content.topic_list|length > 0 %}
+      <div class="flex flex-row flex-wrap items-center justify-start gap-3 mb-5">
+        {% for topic in content.topic_list %}
+          {% if loop.index <= 3 %}
+            <span class='inline-block px-3 py-1 text-xs font-medium bg-primary text-white rounded-full'>{{ topic.name|sanitize_html }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <h1 class="text-h1 text-black mb-6">{{ content.name|sanitize_html }}</h1>
+
+    <div class="flex flex-row items-center justify-start text-sm font-semibold gap-3 mb-10">
+    {% if content.blog_author.avatar %}
+      <div class="relative overflow-hidden h-16 w-16 rounded-full flex-shrink-0">
+        <img src="{{ content.blog_author.avatar }}" alt="{{ content.blog_author.display_name|escape_attr }}" width="64" height="64">
+      </div>
+    {% endif %}
+
+
+    <div class="flex flex-row flex-nowrap items-center justify-start gap-3 max-sm:flex-col max-sm:items-start max-sm:justify-center max-sm:gap-0">
+      {% if content.blog_author.display_name %}
+        <span class="text-black">{{ content.blog_author.display_name|sanitize_html }}</span>
+      {% endif %}
+      {{ '<span class="text-gray-500 max-sm:hidden">|</span>' if content.blog_author.display_name and content.publish_date }}
+      {% if content.publish_date %}
+        <time datetime="{{ content.publish_date }}" class="text-gray-600">{{ content.publish_date|format_date('long') }}</time>
+      {% endif %}
+    </div>
+
+    </div>
+
+    <div class="mb-10">
+      {% module "narration"
+        path="@hubspot/blog_audio",
+        overrideable=False
+      %}
+    </div>
+
+    <div class="prose prose-lg max-w-none mb-20 text-text">
+      {{ content.post_body }}
+    </div>
+
+    <div class="mb-20">
+      {% module "blog-share-heading-2" path="../components/modules/Heading"
+        headingAndTextHeadingLevel="h2",
+        headingAndTextHeading={{ template_translations.blog_post_share_post_heading.message }},
+        groupStyle={
+          "alignment": {
+            "text_align": "CENTER"
+          },
+          "headingStyleVariant": "h5",
+          "sectionStyleVariant": "section_variant_1"
+        }
+      %}
+
+      {% module "social_share" path="../components/modules/SocialShare"
+        groupStyle={
+          buttonStyleVariant: "secondary",
+          spaceBetweenIcons: "small"
+        }
+      %}
+    </div>
+
+  </section>
+
+  {% set rec_posts = blog_recent_posts(group.id, 3) %}
+  {% set posts_to_use = [] %}
+  {% for post in rec_posts %}
+    {% do posts_to_use.append(post) if post.id != content.id and posts_to_use|length < 2 %}
+  {% endfor %}
+
+  {% macro build_recent_post(post) %}
+    <article class="overflow-hidden p-0 bg-white rounded-lg shadow-sm border border-gray-200">
+      <a class="block h-full w-full no-underline hover:no-underline" href="{{ post.absolute_url|escape_url }}">
+        {% if group.use_featured_image_in_summary %}
+          <div class="relative overflow-hidden w-full bg-gray-100" style="aspect-ratio: 1.41;">
+            <img src={{ post.featured_image|escape_url }} alt="{{ post.featured_image_alt|escape_attr }}" width="{{ post.featured_image_width|escape_attr }}" height="{{ post.featured_image_height|escape_attr }}">
+          </div>
+        {% endif %}
+
+        <div class="p-8">
+        {% if post.topic_list|length > 0 %}
+          <div class="flex flex-row flex-wrap items-center justify-start gap-2 mb-6">
+            {% for topic in post.topic_list %}
+              {% if loop.index <= 3 %}
+                <span class='inline-block px-3 py-1 text-xs font-medium bg-primary text-white rounded-full'>{{ topic.name|sanitize_html }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h3 class="mb-0 text-black no-underline text-lg font-semibold">{{ post.title|sanitize_html }}</h3>
+
+        </div>
+      </a>
+    </article>
+  {% endmacro %}
+</div>
+
+{% if group.allow_comments %}
+  <section class="max-w-4xl mx-auto px-4 mb-20">
+    <div class="max-w-4xl mx-auto px-4 mb-20">
+      {% module "blog_comments" path="@hubspot/blog_comments" %}
+    </div>
+  </section>
+{% endif %}
+
+
+
+{% if posts_to_use|length > 0 %}
+ <section class="bg-gray-50 py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-center text-h2 text-black mb-16">{{ template_translations.blog_post_recent_posts_heading.message }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      {% for post in posts_to_use %}
+        {{ build_recent_post(post) }}
+      {% endfor %}
+    </div>
+  </div>
+  </section>
+{% endif %}
+{% endblock %}
