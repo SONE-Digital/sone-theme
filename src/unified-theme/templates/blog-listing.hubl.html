@@ -5,21 +5,8 @@
   screenshotPath: '../images/template-previews/blog-listing.png'
 -->
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
-{% extends "./layouts/base.hubl.html" %}
+{% extends "./layouts/lexjet.hubl.html" %}
 
-{% block header %}
-  <style>
-    /* Ensure Tailwind header works with Bootstrap blog styles */
-    header { position: sticky !important; top: 0 !important; z-index: 1050 !important; }
-    header .bg-white { background-color: white !important; }
-    header .shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; }
-    header .flex { display: flex !important; }
-    header .items-center { align-items: center !important; }
-    header .ml-auto { margin-left: auto !important; }
-    header .space-x-6 > * + * { margin-left: 1.5rem !important; }
-  </style>
-  {% global_partial path="../partials/header.hubl.html" %}
-{% endblock header %}
 
 {% block body %}
 
@@ -36,85 +23,70 @@
   <section class="blog-grid">
     <div class="blog-container">
 
-      <!-- Blog Posts -->
-      <div class="blog-posts-grid">
-        {% if contents %}
-          {{ contents|length }} blog posts found
-        {% else %}
-          <p>No blog posts available. Make sure you have published blog posts in HubSpot.</p>
-        {% endif %}
-
+      <!-- Blog Posts using HubSpot Elevate classes -->
+      <div class="hs-elevate-blog-recent-posts__card-container">
         {% for content in contents %}
-          <article class="blog-listing__post card--light" aria-label="Blog post summary: {{ content.name }}">
+          <article class="hs-elevate-card--recent-post hs-elevate-card--variant-2">
+            <a class="hs-elevate-card--recent-post__link" href="{{ content.absolute_url|escape_url }}">
+              {% if content.featured_image and group.use_featured_image_in_summary %}
+                <div class="hs-elevate-card--recent-post__image-container">
+                  <img src="{{ content.featured_image|escape_url }}" alt="{{ content.featured_image_alt_text|escape_attr }}" width="{{ content.featured_image_width|escape_attr }}" height="{{ content.featured_image_height|escape_attr }}">
+                </div>
+              {% endif %}
 
-            {% if content.featured_image %}
-              <a class="blog-listing__post-image-wrapper" href="{{ content.absolute_url }}" aria-label="Featured image: {{ content.name }} - Read full post: {{ content.name }}">
-                <img class="blog-listing__post-image" src="{{ content.featured_image|escape_attr }}" alt="{{ content.featured_image_alt_text|escape_attr }}" loading="lazy" />
-              </a>
-            {% endif %}
-
-            <div class="blog-listing__post-content">
-              <div class="blog-listing__header">
-
+              <div class="hs-elevate-card--recent-post__content-container">
                 {% if content.topic_list|length > 0 %}
-                  <div class="blog-listing__post-tags">
+                  <div class="hs-elevate-card--recent-post__tag-container">
                     {% for topic in content.topic_list %}
-                      {% if loop.index <= 2 %}
-                        <a class="blog-listing__post-tag" href="/blog/tag/{{ topic.slug }}">{{ topic.name }}</a>{% if not loop.last and loop.index < 2 %}<span>, </span>{% endif %}
+                      {% if loop.index <= 3 %}
+                        <span class='hs-elevate-tag'>{{ topic.name|sanitize_html }}</span>
                       {% endif %}
                     {% endfor %}
                   </div>
                 {% endif %}
 
-                <div class="blog-listing__post-time-read">
-                  <div class="blog-listing__post-time-read-icon"></div>
-                  {{ content.read_time or '5' }} min read.
-                </div>
+                <h3 class="hs-elevate-card--recent-post__title">{{ content.name|sanitize_html }}</h3>
 
-                <h2 class="blog-listing__post-title">
-                  <a class="blog-listing__post-title-link" href="{{ content.absolute_url }}">{{ content.name }}</a>
-                </h2>
+                {% if content.post_summary %}
+                  <p class="hs-elevate-card--recent-post__excerpt">{{ content.post_summary|truncate(120) }}</p>
+                {% endif %}
 
-                <div class="blog-listing__date_author">
+                <div class="hs-elevate-blog-meta">
                   {% if content.blog_author.display_name %}
-                    <div class="blog-listing__post-author">
-                      {% if content.blog_author.avatar %}
-                        <div class="blog-listing__post-author-image-wp">
-                          <img class="blog-listing__post-author-image" src="{{ content.blog_author.avatar }}" width="50" loading="lazy" alt="Picture of {{ content.blog_author.display_name }}" />
-                        </div>
-                      {% endif %}
-                      <a class="blog-listing__post-author-name" href="/blog/author/{{ content.blog_author.slug }}">{{ content.blog_author.display_name }}</a>
-                    </div>
+                    <span class="hs-elevate-blog-meta__author">{{ content.blog_author.display_name|sanitize_html }}</span>
                   {% endif %}
-
-                  <time class="blog-listing__post-timestamp" datetime="{{ content.publish_date }}">
-                    {{ content.publish_date|format_date('MMM d, \'yy') }}
-                  </time>
+                  {{ '<span class="hs-elevate-blog-meta__separator">|</span>' if content.blog_author.display_name and content.publish_date }}
+                  {% if content.publish_date %}
+                    <time datetime="{{ content.publish_date }}" class="hs-elevate-blog-meta__date">{{ content.publish_date|format_date('medium') }}</time>
+                  {% endif %}
                 </div>
               </div>
-
-              <div class="blog-listing__post-summary">
-                {{ content.post_summary|truncate(120) }}
-              </div>
-            </div>
-
+            </a>
           </article>
         {% endfor %}
       </div>
 
       <!-- Pagination -->
-      {% if contents.total_count > contents.per_page %}
-        <div class="blog-pagination">
-          {% if contents.has_previous %}
-            <a href="{{ contents.previous_page_url }}" class="blog-btn blog-btn-outline">← Previous</a>
+      {% if contents.total_page_count > 1 %}
+        <div class="hs-elevate-pagination">
+          {% if contents.previous_page_num %}
+            <a href="{{ blog_page_link(contents.previous_page_num) }}" class="hs-elevate-button hs-elevate-button--secondary">
+              ← Previous
+            </a>
           {% endif %}
 
-          <span class="blog-pagination-info">
-            Page {{ contents.current_page }} of {{ contents.total_pages }}
-          </span>
+          {% for page_num in range(1, contents.total_page_count + 1) %}
+            {% if page_num == current_page_num %}
+              <span class="hs-elevate-pagination__current">{{ page_num }}</span>
+            {% elif page_num <= current_page_num + 2 and page_num >= current_page_num - 2 %}
+              <a href="{{ blog_page_link(page_num) }}" class="hs-elevate-pagination__link">{{ page_num }}</a>
+            {% endif %}
+          {% endfor %}
 
-          {% if contents.has_next %}
-            <a href="{{ contents.next_page_url }}" class="blog-btn blog-btn-outline">Next →</a>
+          {% if contents.next_page_num %}
+            <a href="{{ blog_page_link(contents.next_page_num) }}" class="hs-elevate-button hs-elevate-button--secondary">
+              Next →
+            </a>
           {% endif %}
         </div>
       {% endif %}
