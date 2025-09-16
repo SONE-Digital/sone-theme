@@ -5,6 +5,7 @@
   screenshotPath: '../images/template-previews/blog-listing.png'
 -->
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
+{% set lexjet_css = "../../assets/vite-dist/css/lexjet-theme.hubl.css" %}
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
@@ -19,18 +20,7 @@
   %}
     {% dnd_column
     %}
-      {% dnd_row %}
-        {% dnd_module
-          path="../components/modules/Heading",
-          groupStyle={
-            "alignment" : {
-              "text_align" : "CENTER"
-            }
-          },
-          headingAndTextHeading={{ group.public_title }}
-        %}
-        {% end_dnd_module %}
-      {% end_dnd_row %}
+      {% include "./partials/header.hubl.html" %}
       {% dnd_row %}
         {% dnd_module
           path="../components/modules/RichText",

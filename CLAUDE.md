@@ -236,17 +236,40 @@ For new React modules, the field generation process requires:
 4. This creates the necessary JSON field definitions for HubSpot recognition
 
 ### Last Session Work Summary
-The most recent work involved:
-1. **README Update**: Converted README to reflect S-One Universal Theme based on original HubSpot Elevate theme
-2. **Repository Links**: Added proper attribution to original theme at https://github.com/HubSpot/cms-elevate-theme-public
-3. **React Module Resolution**: Attempted to fix HubSpot module registration errors for LexJetHeader1 and LexJetFooter1
-4. **Field Generation**: Updated both modules with proper exports following Button module pattern
-5. **Template Creation**: Built lexjet-starter.hubl.html with drag-and-drop sections
+The most recent work involved fixing the broken blog templates:
+
+#### Blog Template Issues & Resolution
+1. **Problem**: Mixed CSS frameworks (Tailwind + Bootstrap/HubSpot Elevate) caused CSS conflicts and broken layouts
+2. **Initial Attempts**: Tried to make custom blog templates work with Elevate classes but created more conflicts
+3. **Final Solution**: Completely reset to original HubSpot CMS Elevate theme blog templates
+
+#### Blog Template Restoration Process
+1. **Deleted broken files**: Removed all custom blog templates and CSS modifications
+2. **Downloaded originals**: Pulled fresh templates from https://github.com/HubSpot/cms-elevate-theme-public
+   - `blog-listing.hubl.html` - Original drag-and-drop blog listing template
+   - `blog-detail.hubl.html` - Original blog post detail template
+   - `blog.hubl.css` - Original HubSpot Elevate blog CSS
+3. **Minimal fixes applied**:
+   - Fixed CSS path in blog-detail.hubl.html: `../../assets/dist/css/blog.hubl.css` → `../../assets/vite-dist/css/blog.hubl.css`
+   - Added `{% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}` to blog-listing.hubl.html
+4. **Deployed successfully**: Original HubSpot templates now working with proper Elevate theme styling
+
+#### Key Lessons Learned
+- **Don't mix CSS frameworks**: Tailwind + Bootstrap/HubSpot Elevate creates conflicts
+- **Use original templates as base**: HubSpot Elevate templates are well-designed, modify minimally
+- **CSS path consistency**: Ensure template_css paths match your build system (vite-dist vs dist)
+- **Header/Footer integration**: Base layout handles header/footer properly, don't override unless necessary
+
+### Current Blog Status
+- **Blog listing**: Uses original HubSpot drag-and-drop template with BlogListing module
+- **Blog detail**: Uses original HubSpot blog post template with proper meta, comments, etc.
+- **CSS**: Original HubSpot Elevate blog styling (no custom modifications)
+- **Layout**: Extends base.hubl.html (not lexjet.hubl.html) to avoid Tailwind conflicts
 
 ### Next Steps (if session continues)
-- Test field generation script: `cd src/unified-theme && npm run generate-tmp-json-for-translations`
-- Verify module recognition in HubSpot after field generation
-- Complete lexjet-starter template testing in HubSpot environment
+- Test blog functionality in HubSpot
+- If customization needed, modify the BlogListing React component instead of the template
+- For styling changes, modify blog.hubl.css cautiously to avoid breaking existing structure
 
 ## Configuration Files
 - `vite.config.ts`: Main build configuration with HubL support

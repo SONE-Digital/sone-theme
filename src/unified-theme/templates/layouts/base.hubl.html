@@ -23,6 +23,9 @@
     {% if template_css %}
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
+    {% if lexjet_css %}
+      {{ require_css(get_asset_url(lexjet_css)) }}
+    {% endif %}
     {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_header_includes }}
   </head>
