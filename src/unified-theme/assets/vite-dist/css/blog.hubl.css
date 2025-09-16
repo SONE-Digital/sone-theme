@@ -37,17 +37,26 @@
   gap: 24px;
   font-size: 14px;
   letter-spacing: 0.28px;
-  color: #232323;
   white-space: nowrap;
 }
 
 .blog-header .btn-link {
-  color: #232323;
+  background-color: transparent;
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  height: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
 
 .blog-header .btn-link:hover {
-  text-decoration: underline;
+  color: #007BFF;
 }
 
 @media (min-width: 576px) {
