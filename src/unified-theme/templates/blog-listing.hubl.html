@@ -9,6 +9,63 @@
 
 {% block body %}
 
+<header class="blog-header">
+  <!-- Divider line -->
+  <img
+    src="{{ get_asset_url('../../images/lexjet/capital-equipment/divider-line.svg') }}"
+    alt="Divider line"
+    class="divider-line"
+  />
+
+  <div class="container">
+    <!-- Logo -->
+    <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
+      <img
+        src="{{ get_asset_url('../../images/lexjet/lexjet-logo.png') }}"
+        alt="LexJet Logo"
+        class="logo"
+      />
+    </a>
+
+    <!-- Navigation -->
+    <div class="nav">
+      <a
+        href="https://www.lexjet.com"
+        class="btn-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        SHOP LEXJET.COM
+      </a>
+
+      <!-- Hide below 600px -->
+      <a
+        href="tel:8004539538"
+        class="btn-link hide-mobile"
+      >
+        800-453-9538
+      </a>
+
+      <a
+        href="https://www.lexjet.com"
+        class="btn-link hide-mobile"
+      >
+        CONTACT US
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="blog-hero" style="background-image: url('{{ get_asset_url('../../images/lexjet/printer-background.png') }}');">
+  <div class="blog-hero-overlay">
+    <div class="blog-hero-content">
+      <h1 class="blog-hero-title">LexJet Blog - TESTING</h1>
+      <p class="blog-hero-subtitle">Industry news and education for inkjet printing</p>
+    </div>
+  </div>
+</div>
+
 {% dnd_area 'main'%}
   {% dnd_section
     padding={
@@ -19,62 +76,6 @@
   %}
     {% dnd_column
     %}
-      <header class="blog-header">
-        <!-- Divider line -->
-        <img
-          src="{{ get_asset_url('../../images/lexjet/capital-equipment/divider-line.svg') }}"
-          alt="Divider line"
-          class="divider-line"
-        />
-
-        <div class="container">
-          <!-- Logo -->
-          <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
-            <img
-              src="{{ get_asset_url('../../images/lexjet/lexjet-logo.png') }}"
-              alt="LexJet Logo"
-              class="logo"
-            />
-          </a>
-
-          <!-- Navigation -->
-          <div class="nav">
-            <a
-              href="https://www.lexjet.com"
-              class="btn-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              SHOP LEXJET.COM
-            </a>
-
-            <!-- Hide below 600px -->
-            <a
-              href="tel:8004539538"
-              class="btn-link hide-mobile"
-            >
-              800-453-9538
-            </a>
-
-            <a
-              href="https://www.lexjet.com"
-              class="btn-link hide-mobile"
-            >
-              CONTACT US
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <!-- Hero Section -->
-      <div class="blog-hero" style="background-image: url('{{ get_asset_url('../../images/lexjet/printer-background.png') }}');">
-        <div class="blog-hero-overlay">
-          <div class="blog-hero-content">
-            <h1 class="blog-hero-title">LexJet Blog - TESTING</h1>
-            <p class="blog-hero-subtitle">Industry news and education for inkjet printing</p>
-          </div>
-        </div>
-      </div>
 
       {% dnd_row %}
         {% dnd_module
