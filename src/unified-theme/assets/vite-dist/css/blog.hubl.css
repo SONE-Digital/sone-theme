@@ -68,6 +68,62 @@
   }
 }
 
+/* Blog Hero Styles */
+.blog-hero {
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-hero-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+.blog-hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+}
+
+.blog-hero-subtitle {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .blog-hero {
+    height: 300px;
+  }
+
+  .blog-hero-title {
+    font-size: 36px;
+  }
+
+  .blog-hero-subtitle {
+    font-size: 16px;
+  }
+}
+
 /* Blog Post */
 .hs-elevate-blog-image-container {
   position: relative;
