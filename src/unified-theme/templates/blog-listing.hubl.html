@@ -71,12 +71,11 @@
 <!-- Search Section -->
 <div class="blog-search-section">
   <div class="blog-search-container">
-    <input
-      type="text"
-      class="blog-search-input"
-      placeholder="Search blog posts..."
-      name="search"
-    />
+    {% module "blog_search_input"
+      path="@hubspot/search_input",
+      extra_classes="blog-search-input",
+      overrideable=true
+    %}
   </div>
 </div>
 

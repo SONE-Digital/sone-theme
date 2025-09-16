@@ -137,7 +137,7 @@
   position: relative;
 }
 
-.blog-search-input {
+.blog-search-input input[type="search"] {
   width: 100%;
   padding: 15px 20px 15px 50px;
   border: 1px solid #ddd;
@@ -153,12 +153,12 @@
   transition: box-shadow 0.3s ease;
 }
 
-.blog-search-input:focus {
+.blog-search-input input[type="search"]:focus {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-color: #007bff;
 }
 
-.blog-search-input::placeholder {
+.blog-search-input input[type="search"]::placeholder {
   color: #999;
 }
 
