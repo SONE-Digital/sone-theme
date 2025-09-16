@@ -7,8 +7,7 @@
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
 {% extends "./layouts/base.hubl.html" %}
 
-{% block body %}
-
+{% block header %}
 <header class="blog-header">
   <!-- Divider line -->
   <img
@@ -55,6 +54,9 @@
     </div>
   </div>
 </header>
+{% endblock header %}
+
+{% block body %}
 
 <!-- Hero Section -->
 <div class="blog-hero" style="background-image: url('{{ get_asset_url('../images/lexjet/printer-background.png') }}');">
