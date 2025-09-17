@@ -7,6 +7,12 @@
 {% set template_css = "../../assets/vite-dist/css/lexjet-theme.hubl.css" %}
 {% extends "./layouts/lexjet.hubl.html" %}
 
+{% block header %}
+{% module "lexjet_header"
+  path="../components/modules/LexJetHeader1"
+%}
+{% endblock header %}
+
 {% block body %}
 
 {% dnd_area 'main' %}
@@ -35,3 +41,9 @@
 {% end_dnd_area %}
 
 {% endblock %}
+
+{% block footer %}
+{% module "lexjet_footer"
+  path="../components/modules/LexJetFooter1"
+%}
+{% endblock footer %}
