@@ -7,13 +7,9 @@
 {% set template_css = "../../assets/vite-dist/css/lexjet-theme.hubl.css" %}
 {% extends "./layouts/lexjet.hubl.html" %}
 
-{% block header %}
-{% module "lexjet_header"
-  path="../components/modules/LexJetHeader1"
-%}
-{% endblock header %}
-
 {% block body %}
+
+{% include "./partials/header.hubl.html" %}
 
 {% dnd_area 'main' %}
   {% dnd_section
@@ -40,10 +36,6 @@
   {% end_dnd_section %}
 {% end_dnd_area %}
 
-{% endblock %}
+{% include "./partials/footer.hubl.html" %}
 
-{% block footer %}
-{% module "lexjet_footer"
-  path="../components/modules/LexJetFooter1"
-%}
-{% endblock footer %}
+{% endblock %}
