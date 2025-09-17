@@ -10,6 +10,7 @@ import { HeadingLevelType } from '../../types/fields.js';
 import { CardVariantType } from '../../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
+import HeadingComponent from '../../HeadingComponent/index.js';
 
 const swm = staticWithModule(styles);
 
@@ -67,15 +68,15 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   const postsToUse = posts || [];
 
-  // Create heading component dynamically based on heading level
-  const HeadingTag = headingAndTextHeadingLevel || 'h3';
-
   return (
     <RecentBlogPosts className={swm('hs-elevate-recent-blog-posts')}>
       {showHeading && headingAndTextHeading && (
-        <HeadingTag className={swm('hs-elevate-recent-blog-posts__heading')}>
-          {headingAndTextHeading}
-        </HeadingTag>
+        <HeadingComponent
+          headingLevel={headingAndTextHeadingLevel}
+          heading={headingAndTextHeading}
+          headingStyleVariant={headingStyleVariant}
+          additionalClassArray={[swm('hs-elevate-recent-blog-posts__heading')]}
+        />
       )}
       <BlogCardsContainer className={swm('hs-elevate-recent-blog-posts__blog-card-container')}>
         {postsToUse.length === 0 && isInEditor ? (

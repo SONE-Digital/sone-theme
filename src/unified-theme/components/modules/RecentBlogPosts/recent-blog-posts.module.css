@@ -1,10 +1,14 @@
+/* Import blog styles */
+@import '../../../assets/vite-dist/css/blog.hubl.css';
+
 .hs-elevate-recent-blog-posts {
   container: blog-grid / inline-size;
+  font-family: "Libre Franklin", Arial, sans-serif;
 }
 
 .hs-elevate-recent-blog-posts__heading {
-  color: var(--hsElevate--heading__textColor);
   margin-bottom: var(--hsElevate--spacing--32, 32px);
+  font-family: "Libre Franklin", Arial, sans-serif;
 }
 
 .hs-elevate-recent-blog-posts__blog-card-container {
