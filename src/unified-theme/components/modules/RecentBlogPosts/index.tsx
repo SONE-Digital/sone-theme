@@ -109,8 +109,7 @@ export const Component = (props: RecentBlogPostsProps) => {
                     </div>
                     {post.excerpt && (
                       <div className="hs-elevate-card__excerpt">
-                        <p>{post.excerpt}</p>
-                        <span className="hs-elevate-card__more-link">More →</span>
+                        <p>{post.excerpt} <span className="hs-elevate-card__more-link">More →</span></p>
                       </div>
                     )}
                   </div>
@@ -148,7 +147,7 @@ export const hublDataTemplate = `
         featuredImageHeight: post.featuredImageHeight,
         title: post.label,
         topicNames: post.topicNames,
-        excerpt: post.postSummary|striptags|truncate(150, true, '...')
+        excerpt: post.postSummary|striptags|truncate(250, true, '')
       }
     %}
     {% do blog_posts.append(temp_post) %}
