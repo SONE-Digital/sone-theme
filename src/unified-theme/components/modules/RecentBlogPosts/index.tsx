@@ -27,6 +27,7 @@ type RecentBlogPostsProps = {
       featuredImageHeight: number;
       topicNames: string[];
       absoluteUrl: string;
+      excerpt: string;
     }[];
     isInEditor: boolean;
   };
@@ -83,18 +84,39 @@ export const Component = (props: RecentBlogPostsProps) => {
           <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
         ) : (
           postsToUse.map(post => (
-            <BlogCardComponent
-              key={post.id}
-              post={{
-                ...post,
-                id: post.id.toString(),
-              }}
-              headingAndTextHeadingLevel={headingAndTextHeadingLevel}
-              headingStyleVariant={headingStyleVariant}
-              cardStyleVariant={cardStyleVariant}
-              gatedContentIds={gatedContentIds.map(id => id.toString())}
-              additionalClassArray={[swm('hs-elevate-recent-blog-posts__blog-card')]}
-            />
+            <div key={post.id} className={swm('hs-elevate-recent-blog-posts__blog-card')}>
+              <div className="hs-elevate-card hs-elevate-card--column hs-elevate-card--variant-2">
+                <a href={post.absoluteUrl} className="hs-elevate-card__link">
+                  {post.featuredImage && (
+                    <div className="hs-elevate-card__image-container">
+                      <img
+                        src={post.featuredImage}
+                        alt={post.featuredImageAltText || post.title}
+                        width={post.featuredImageWidth}
+                        height={post.featuredImageHeight}
+                        className="hs-elevate-card__image"
+                      />
+                    </div>
+                  )}
+                  <div className="hs-elevate-card__content-container">
+                    <div className="hs-elevate-card__heading-container">
+                      <HeadingComponent
+                        heading={post.title}
+                        headingLevel={headingAndTextHeadingLevel}
+                        headingStyleVariant={headingStyleVariant}
+                        additionalClassArray={['hs-elevate-card__heading']}
+                      />
+                    </div>
+                    {post.excerpt && (
+                      <div className="hs-elevate-card__excerpt">
+                        <p>{post.excerpt}</p>
+                        <span className="hs-elevate-card__more-link">More →</span>
+                      </div>
+                    )}
+                  </div>
+                </a>
+              </div>
+            </div>
           ))
         )}
       </BlogCardsContainer>
@@ -125,7 +147,8 @@ export const hublDataTemplate = `
         featuredImageWidth: post.featuredImageWidth,
         featuredImageHeight: post.featuredImageHeight,
         title: post.label,
-        topicNames: post.topicNames
+        topicNames: post.topicNames,
+        excerpt: post.postSummary|striptags|truncate(150, true, '...')
       }
     %}
     {% do blog_posts.append(temp_post) %}
