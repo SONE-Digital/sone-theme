@@ -2,6 +2,11 @@
   container: blog-grid / inline-size;
 }
 
+.hs-elevate-recent-blog-posts__heading {
+  color: var(--hsElevate--heading__textColor);
+  margin-bottom: var(--hsElevate--spacing--32, 32px);
+}
+
 .hs-elevate-recent-blog-posts__blog-card-container {
   display: flex;
   margin-bottom: var(--hsElevate--spacing--48, 48px);

@@ -30,6 +30,7 @@ type RecentBlogPostsProps = {
     isInEditor: boolean;
   };
   fieldValues: {
+    showHeading: boolean;
     headingAndTextHeadingLevel: HeadingLevelType;
     headingAndTextHeading: string;
     groupStyle: {
@@ -55,6 +56,7 @@ export const Component = (props: RecentBlogPostsProps) => {
   const {
     hublData: { posts, isInEditor },
     fieldValues: {
+      showHeading,
       headingAndTextHeadingLevel,
       headingAndTextHeading,
       groupStyle: { cardStyleVariant, headingStyleVariant },
@@ -70,7 +72,7 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   return (
     <RecentBlogPosts className={swm('hs-elevate-recent-blog-posts')}>
-      {headingAndTextHeading && (
+      {showHeading && headingAndTextHeading && (
         <HeadingTag className={swm('hs-elevate-recent-blog-posts__heading')}>
           {headingAndTextHeading}
         </HeadingTag>
