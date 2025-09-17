@@ -31,6 +31,7 @@ type RecentBlogPostsProps = {
   };
   fieldValues: {
     headingAndTextHeadingLevel: HeadingLevelType;
+    headingAndTextHeading: string;
     groupStyle: {
       cardStyleVariant: CardVariantType;
       headingStyleVariant: HeadingStyleFieldLibraryType;
@@ -55,6 +56,7 @@ export const Component = (props: RecentBlogPostsProps) => {
     hublData: { posts, isInEditor },
     fieldValues: {
       headingAndTextHeadingLevel,
+      headingAndTextHeading,
       groupStyle: { cardStyleVariant, headingStyleVariant },
       groupPlaceholderText: { placeholderTitle, placeholderDescription },
     },
@@ -63,8 +65,16 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   const postsToUse = posts || [];
 
+  // Create heading component dynamically based on heading level
+  const HeadingTag = headingAndTextHeadingLevel || 'h3';
+
   return (
     <RecentBlogPosts className={swm('hs-elevate-recent-blog-posts')}>
+      {headingAndTextHeading && (
+        <HeadingTag className={swm('hs-elevate-recent-blog-posts__heading')}>
+          {headingAndTextHeading}
+        </HeadingTag>
+      )}
       <BlogCardsContainer className={swm('hs-elevate-recent-blog-posts__blog-card-container')}>
         {postsToUse.length === 0 && isInEditor ? (
           <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
