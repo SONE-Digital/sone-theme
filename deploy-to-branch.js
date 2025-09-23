@@ -13,13 +13,15 @@ try {
   console.warn("⚠️ Could not read site config, using default:", DEPLOY_SITE);
 }
 
-// Determine target branch based on site config
+// Determine target branch based on current branch and site config
 let targetBranch;
-if (DEPLOY_SITE.includes('-sandbox')) {
-  // For sandbox sites, use the site name as branch name
-  targetBranch = DEPLOY_SITE;
+const currentBranch = execSync('git branch --show-current', { encoding: 'utf8' }).trim();
+
+if (currentBranch.includes('-sandbox')) {
+  // If we're on a sandbox branch, stay on sandbox branch
+  targetBranch = currentBranch;
 } else {
-  // For production sites, use just the site name
+  // For production deployments, use the site name
   targetBranch = DEPLOY_SITE;
 }
 
@@ -27,8 +29,6 @@ console.log(`🎯 Site: ${DEPLOY_SITE}`);
 console.log(`🌿 Target branch: ${targetBranch}`);
 
 try {
-  // Get current branch
-  const currentBranch = execSync('git branch --show-current', { encoding: 'utf8' }).trim();
   console.log(`📍 Current branch: ${currentBranch}`);
 
   // Stage all changes
