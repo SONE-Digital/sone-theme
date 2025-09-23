@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "set-site": "node set-site.js",
-    "build-mockup": "node run-mockup.js && npx tailwindcss -o ./assets/css/lexjet-theme.css",
+    "build-mockup": "node run-mockup.js && node build-css.js",
     "run-mockup": "npm run build-mockup && npm run serve",
     "deploy-mockup": "npm run build-mockup && cd .. && npm run build && npm run deploy-project",
     "upload:hubl": "cd .. && hs project upload",

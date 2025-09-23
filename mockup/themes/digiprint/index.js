@@ -96,15 +96,21 @@ function themePlugin({ addComponents, addUtilities, theme }) {
 
   if (themeJson.colors) {
     for (const [name, value] of Object.entries(themeJson.colors)) {
-      components[`.bg-${name}`] = { backgroundColor: value };
+      components[`.bg-${name}`] = {
+        backgroundColor: value,
+        color: "#ffffff",
+        padding: "1rem 1.5rem",
+        borderRadius: "0.25rem",
+        textAlign: "center"
+      };
       components[`.border-${name}`] = { borderColor: value };
-  
+
       if (name !== "primary") {
         components[`.text-${name}`] = { color: value };
       }
-      
+
     }
-  
+
     // Explicit override for text-primary
     components[".text-primary"] = { color: "#333333" };
   }

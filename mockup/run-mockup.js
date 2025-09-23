@@ -1,8 +1,19 @@
 const fs = require("fs");
 const path = require("path");
 
+// Read site configuration
+let SITE = "lexjet"; // Default
+try {
+  const siteConfigPath = path.resolve(__dirname, ".site-config");
+  if (fs.existsSync(siteConfigPath)) {
+    SITE = fs.readFileSync(siteConfigPath, "utf8").trim();
+  }
+} catch (err) {
+  console.warn("⚠️ Could not read site config, using default:", SITE);
+}
+
 // Load theme file (defaults to LexJet if none passed)
-const brandFile = process.argv[2] || "./themes/lexjet/index.js";
+const brandFile = process.argv[2] || `./themes/${SITE}/index.js`;
 const theme = require(path.resolve(brandFile));
 
 
@@ -84,6 +95,9 @@ result = result.replace(/{{\s*theme\.brand\s*}}/g, theme.brand || "Brand");
 result = result.replace(/{{\s*colorPaletteGrid\s*}}/g, colorPaletteHTML);
 result = result.replace(/{{\s*typographySection\s*}}/g, typographySection);
 
+// Replace CSS path with site-specific file
+result = result.replace(/href="[^"]*(?:lexjet|digiprint|hp|kodak)-theme\.css"/, `href="../../assets/css/${SITE}-theme.css"`);
+
 // Function to convert paths for mockup viewing  
 function convertPathsForMockup(content) {
   // Handle both old relative paths and new absolute paths
@@ -94,8 +108,19 @@ function convertPathsForMockup(content) {
 
 // Load and replace component placeholders
 try {
-  let headerComponent = fs.readFileSync(path.join(__dirname, "templates/components/header.html"), "utf8");
-  let footerComponent = fs.readFileSync(path.join(__dirname, "templates/components/footer.html"), "utf8");
+  // Try to load site-specific components first, fallback to generic ones
+  let headerFile = `templates/components/${SITE}-header.html`;
+  let footerFile = `templates/components/${SITE}-footer.html`;
+
+  if (!fs.existsSync(path.join(__dirname, headerFile))) {
+    headerFile = "templates/components/header.html";
+  }
+  if (!fs.existsSync(path.join(__dirname, footerFile))) {
+    footerFile = "templates/components/footer.html";
+  }
+
+  let headerComponent = fs.readFileSync(path.join(__dirname, headerFile), "utf8");
+  let footerComponent = fs.readFileSync(path.join(__dirname, footerFile), "utf8");
   
   // Convert paths for mockup viewing
   headerComponent = convertPathsForMockup(headerComponent);
@@ -114,6 +139,7 @@ ${footerComponent}
 }
 
 // Save final output
-fs.writeFileSync("./templates/pages/lexjet-theme.html", result, "utf8");
+const outputFile = `./templates/pages/${SITE}-theme.html`;
+fs.writeFileSync(outputFile, result, "utf8");
 
-console.log("✅ Style guide generated: templates/pages/lexjet-theme.html");
+console.log(`✅ Style guide generated: templates/pages/${SITE}-theme.html`);
