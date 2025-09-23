@@ -245,15 +245,13 @@ for (const file of files) {
     
     if (isForCurrentSite) {
       // Template is for current site or shared - make it available
-      content = wrapWithHubSpotBlocks(content, label, potentialSitePrefix, true);
+      content = wrapWithHubSpotBlocks(content, label, BASE_SITE, true);
+      fs.writeFileSync(outputPath, content, "utf8");
       console.log(`✔ Processed (${isSiteSpecific ? 'site-specific' : 'shared'}): ${file}`);
     } else {
-      // Template is for a different site - hide it
-      content = wrapWithHubSpotBlocks(content, label, potentialSitePrefix, false);
-      console.log(`✔ Processed (hidden for ${BASE_SITE}): ${file}`);
+      // Template is for a different site - skip it entirely
+      console.log(`⏭ Skipped (not for ${BASE_SITE}): ${file}`);
     }
-
-    fs.writeFileSync(outputPath, content, "utf8");
   } catch (err) {
     console.error(`❌ Error processing ${file}:`, err.message);
   }
