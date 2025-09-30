@@ -1,0 +1,35 @@
+<!--
+  templateType: global_partial
+  isAvailableForNewContent: false
+  label: Widget World Layout
+-->
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block page_title %}{{ page_meta.html_title }}{% endblock %}</title>
+    <meta name="description" content="{{ page_meta.meta_description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if template_css %}
+    <link rel="stylesheet" href="{{ get_asset_url(template_css) }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ get_asset_url('../../assets/vite-dist/css/main.hubl.css') }}">
+    <link rel="stylesheet" href="{{ get_asset_url('../../assets/vite-dist/css/widget-world-theme.hubl.css') }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {{ standard_header_includes }}
+
+    {% block head_content %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+
+    {{ standard_footer_includes }}
+  </body>
+</html>

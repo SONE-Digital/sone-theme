@@ -1,4 +1,4 @@
-const themeName = process.env.THEME || "lexjet";
+const themeName = process.env.THEME || "widget-world";
 const themeJson = require(`./themes/${themeName}/style-guide.json`);
 
 module.exports = {
@@ -7,10 +7,7 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx,html}",
     "./templates/pages/**/*.html",
     "./themes/**/*.{js,jsx,ts,tsx,html}",
-    "./style-guide.html",
-    "./themes/lexjet/index.js",
-    "./themes/lexjet/style-guide.json",
-    "../src/sone-theme/components/**/*.{js,jsx,ts,tsx}"
+    "./style-guide.html"
   ],
   safelist: [
     { pattern: /^text-h\d{1,2}$/ },
@@ -49,18 +46,43 @@ module.exports = {
       },
       fontSize: (() => {
         const customFontSizes = {};
-        for (const [key, style] of Object.entries(themeJson.fonts.size)) {
-          if (style.fontSize) {
-            if (typeof style.fontSize === 'object') {
-              customFontSizes[key] = style.fontSize.default;
-            } else {
-              customFontSizes[key] = style.fontSize;
+
+        // Handle different theme JSON structures
+        if (themeJson.fonts && themeJson.fonts.size) {
+          // Old format with fonts.size
+          for (const [key, style] of Object.entries(themeJson.fonts.size)) {
+            if (style.fontSize) {
+              if (typeof style.fontSize === 'object') {
+                customFontSizes[key] = style.fontSize.default;
+              } else {
+                customFontSizes[key] = style.fontSize;
+              }
             }
+          }
+        } else if (themeJson.typography) {
+          // New format with typography
+          if (themeJson.typography.bodySize) {
+            customFontSizes.body = themeJson.typography.bodySize;
+          }
+          if (themeJson.typography.headingSizes) {
+            themeJson.typography.headingSizes.forEach((size, index) => {
+              customFontSizes[`h${index + 1}`] = size;
+            });
           }
         }
         return customFontSizes;
       })(),
     }
   },
-  plugins: [require(`./themes/${themeName}/index.js`).plugin],
+  plugins: [
+    // Only include plugin if it exists
+    ...((() => {
+      try {
+        const themeModule = require(`./themes/${themeName}/index.js`);
+        return themeModule.plugin ? [themeModule.plugin] : [];
+      } catch (e) {
+        return [];
+      }
+    })())
+  ],
 };

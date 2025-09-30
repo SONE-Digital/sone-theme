@@ -1,0 +1,78 @@
+{
+  "name": "LexJet Professional Theme",
+  "dataColors": [
+    "#002855",
+    "#007BFF",
+    "#44B44F",
+    "#5B6574",
+    "#B12704",
+    "#FFC107",
+    "#686868",
+    "#AAAAAA"
+  ],
+  "bad": "#FDE8EA",
+  "neutral": "#FFF5D5",
+  "good": "#E6FEF8",
+  "textClasses": {
+    "label": {
+      "color": "#000000",
+      "fontFace": "Libre Franklin"
+    },
+    "callout": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 24,
+      "color": "#000000"
+    },
+    "title": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 18,
+      "color": "#000000"
+    },
+    "header": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 16,
+      "color": "#000000"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "titleSize": 18
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Available",
+            "backgroundColor": {
+              "solid": {
+                "color": "#F5F5F5"
+              }
+            },
+            "transparency": 0
+          },
+          {
+            "$id": "Applied",
+            "backgroundColor": {
+              "solid": {
+                "color": "#002855"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ const fs = require("fs");
 const { execSync } = require("child_process");
 
 // Read site configuration
-let SITE = "lexjet"; // Default
+let SITE = "widget-world"; // Default
 try {
   const siteConfigPath = ".site-config";
   if (fs.existsSync(siteConfigPath)) {

@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Read site configuration
-let SITE = "lexjet"; // Default
+let SITE = "widget-world"; // Default
 try {
   const siteConfigPath = path.resolve(__dirname, ".site-config");
   if (fs.existsSync(siteConfigPath)) {
@@ -29,14 +29,29 @@ const colorPaletteHTML = `
 <div class="px-8 pt-8 pb-12">
   <h3 class="text-xl font-semibold mb-6 text-center">Color Palette</h3>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-    ${theme.colors.palette
+    ${(theme.colors.palette || Object.entries(theme.colors || {}))
       .map(
-        (color) => `
+        (colorEntry) => {
+          // Handle both array format (palette) and object format (individual colors)
+          if (Array.isArray(theme.colors.palette)) {
+            // Palette is an array of color values
+            return `
+      <div class="flex flex-col items-center space-y-2 w-full">
+        <div class="w-full" style="aspect-ratio: 4 / 3; background-color: ${colorEntry}; border: 1px solid #ccc; border-radius: 0.375rem;"></div>
+        <div class="text-sm font-mono text-gray-800">${colorEntry}</div>
+      </div>
+    `;
+          } else {
+            // Individual color properties
+            const [colorName, color] = colorEntry;
+            return `
       <div class="flex flex-col items-center space-y-2 w-full">
         <div class="w-full" style="aspect-ratio: 4 / 3; background-color: ${color}; border: 1px solid #ccc; border-radius: 0.375rem;"></div>
-        <div class="text-sm font-mono text-gray-800">${color}</div>
+        <div class="text-sm font-mono text-gray-800">${colorName}: ${color}</div>
       </div>
-    `
+    `;
+          }
+        }
       )
       .join("")}
   </div>
@@ -46,9 +61,31 @@ const colorPaletteHTML = `
 // Generate typography section
 let typographySection = "";
 const fontFamilyDisplay =
-  theme.fonts.family?.sans?.[0]?.replace(/^"+|"+$/g, "") || "Sans";
+  theme.fonts.family?.sans?.[0]?.replace(/^"+|"+$/g, "") ||
+  theme.fonts?.heading?.replace(/^"+|"+$/g, "") ||
+  "Sans";
 
-for (const [key, heading] of Object.entries(theme.fonts.size)) {
+// Handle both old and new font structure
+const fontSizes = theme.fonts.size || {
+  heading: {
+    label: { fontSize: "2rem" },
+    fontSize: "2rem",
+    fontWeight: "600",
+    padding: "1rem",
+    letterSpacing: "0",
+    lineHeight: "1.2"
+  },
+  body: {
+    label: { fontSize: "1rem" },
+    fontSize: "1rem",
+    fontWeight: "400",
+    padding: "0.5rem",
+    letterSpacing: "0",
+    lineHeight: "1.5"
+  }
+};
+
+for (const [key, heading] of Object.entries(fontSizes)) {
   const label = heading.label || {};
 
   // Parse compact padding (if all sides are in one string)
@@ -96,7 +133,7 @@ result = result.replace(/{{\s*colorPaletteGrid\s*}}/g, colorPaletteHTML);
 result = result.replace(/{{\s*typographySection\s*}}/g, typographySection);
 
 // Replace CSS path with site-specific file
-result = result.replace(/href="[^"]*(?:lexjet|digiprint|hp|kodak)-theme\.css"/, `href="../../assets/css/${SITE}-theme.css"`);
+result = result.replace(/href="[^"]*-theme\.css"/, `href="../../assets/css/${SITE}-theme.css"`);
 
 // Function to convert paths for mockup viewing  
 function convertPathsForMockup(content) {
