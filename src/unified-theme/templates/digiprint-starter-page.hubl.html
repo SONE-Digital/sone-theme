@@ -1,0 +1,42 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: DigiPrint Starter Page
+  screenshotPath: '../images/template-previews/digiprint-starter-page.png'
+-->
+{% set template_css = "../../assets/vite-dist/css/digiprint-theme.hubl.css" %}
+{% extends "./layouts/digiprint.hubl.html" %}
+
+{% block body %}
+
+{% include "./partials/header.hubl.html" %}
+
+{% dnd_area 'main' %}
+  {% dnd_section
+    padding={
+      "default" : {
+        "top" : spacing_64,
+        "bottom" : spacing_64
+      }
+    }
+  %}
+    {% dnd_column
+    %}
+      {% dnd_row %}
+        {% dnd_module
+          path="../components/modules/RichText",
+        %}
+          {% module_attribute "richTextContentHTML" %}
+            <h1 style="text-align: center;">Welcome to DigiPrint</h1>
+            <p style="text-align: center;">Start building your page by adding modules below.</p>
+            <p style="text-align: center; color: #666;">Drag and drop content modules to customize your page.</p>
+          {% end_module_attribute %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+{% end_dnd_area %}
+
+{% include "./partials/footer.hubl.html" %}
+
+{% endblock %}

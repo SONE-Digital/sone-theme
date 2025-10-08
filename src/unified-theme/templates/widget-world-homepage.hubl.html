@@ -1,0 +1,64 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Widget World Homepage
+-->
+
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+    {% include "./partials/header.hubl.html" %}
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: var(--space-2xl) 0;">
+            <div class="container text-center">
+                <h1>Widgets that work wonders</h1>
+                <p class="mb-lg" style="font-size: 1.25rem; margin-bottom: var(--space-xl);">
+                    Premium widgets and widget accessories for modern businesses
+                </p>
+                <a href="/products" class="btn btn-secondary" style="background: white; color: var(--primary-color);">
+                    View Products
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section style="padding: var(--space-2xl) 0;">
+            <div class="container">
+                <h2 class="text-center mb-xl">Why Choose Widget World?</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl);">
+
+                    <div class="card text-center">
+                        <h3>Premium Quality</h3>
+                        <p>All our widgets are crafted with the finest materials and tested for durability.</p>
+                    </div>
+
+                    <div class="card text-center">
+                        <h3>Fast Delivery</h3>
+                        <p>Get your widgets delivered within 24 hours with our express shipping.</p>
+                    </div>
+
+                    <div class="card text-center">
+                        <h3>Expert Support</h3>
+                        <p>Our widget experts are here to help you choose the perfect solution.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="background: #f8fafc; padding: var(--space-2xl) 0;">
+            <div class="container text-center">
+                <h2>Ready to get started?</h2>
+                <p class="mb-lg">Join thousands of satisfied customers who trust Widget World</p>
+                <a href="/contact" class="btn btn-primary">Get Started Today</a>
+            </div>
+        </section>
+    </main>
+
+    {% include "./partials/footer.hubl.html" %}
+
+{% endblock %}

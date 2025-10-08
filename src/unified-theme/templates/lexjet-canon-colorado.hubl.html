@@ -1,0 +1,411 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Lexjet Canon Colorado
+-->
+
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+    {% include "./partials/header.hubl.html" %}
+
+    <div class="max-w-[1440px] mx-auto">
+      <!-- Hero Section -->
+      <section class="relative w-full bg-gray-50 py-12">
+        <div class="relative mx-auto max-w-[1440px] px-4 sm:px-8">
+          <div class="text-center">
+            <img
+              src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Colorado-M-Series.jpg') }}"
+              alt="Canon Colorado M-Series Printer"
+              class="mx-auto mb-8 w-full max-w-4xl h-auto object-contain"
+            />
+            <div class="max-w-4xl mx-auto">
+              <h1 class="text-h1 text-center mb-6">
+                Are you ready for the next level in productivity and creativity?
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction Section -->
+      <section class="py-12 px-4 sm:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="text-h5 text-gray-700 leading-relaxed mb-8">
+            The Colorado M-series large format printer is designed for business growth and versatility. 
+            With its modular architecture, you can start with the configuration that meets your current 
+            needs and upgrade as your requirements evolve. Experience robust, fade-resistant prints with 
+            UVgel technology and explore new creative possibilities.
+          </p>
+          
+          <!-- YouTube Video -->
+          <div class="relative w-full max-w-4xl mx-auto mb-8" style="aspect-ratio: 16/9;">
+            <iframe 
+              src="https://www.youtube.com/embed/AEeS6mnT4e4" 
+              title="Canon Colorado M-Series Video"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen
+              class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Key Features Section -->
+      <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8">
+          <h2 class="text-h2 text-center mb-12">Why Choose Colorado M-Series?</h2>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- UVgel Technology -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-paint-brush text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">UVgel Technology</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Advanced UV gel ink technology delivers robust, fade-resistant prints with 
+                exceptional durability and color vibrancy.
+              </p>
+            </div>
+
+            <!-- White Ink Option -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-palette text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">White Ink Option</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Optional white ink capability opens up new creative possibilities and expands 
+                your application range significantly.
+              </p>
+            </div>
+
+            <!-- FLXfinish+ -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-magic text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">FLXfinish+</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Print matte, gloss, or mixed matte and gloss in one print. Achieve stunning 
+                visual effects with flexible finishing options.
+              </p>
+            </div>
+
+            <!-- Versatile Media -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-layer-group text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">Impressive Media Range</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Compatible with a wide variety of media types, giving you the flexibility 
+                to handle diverse printing applications.
+              </p>
+            </div>
+
+            <!-- Upgradeable System -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-arrow-up text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">Upgradeable Functionality</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Modular architecture allows you to start with basic configuration and upgrade 
+                as your business grows and requirements evolve.
+              </p>
+            </div>
+
+            <!-- High Reliability -->
+            <div class="text-center p-6">
+              <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-shield-alt text-3xl text-primary"></i>
+              </div>
+              <h3 class="text-h4 mb-4">High Reliability</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Built for continuous operation with consistent, high-quality output and 
+                minimal maintenance requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Detail Section -->
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+          <h2 class="text-h2 text-center mb-12">Colorado M-Series Models</h2>
+          
+          <!-- Two Column Layout - Stacks on mobile/tablet, side-by-side on desktop -->
+          <div class="flex flex-col xl:flex-row gap-8 xl:gap-12">
+            <!-- Left Column -->
+            <div class="flex-1 flex flex-col">
+              <!-- Left Image -->
+              <div class="text-center mb-8">
+                <img
+                  src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Canon Colorado 030223-141.jpg') }}"
+                  alt="Canon Colorado M-Series Detail View"
+                  class="w-full h-auto max-h-[400px] object-contain rounded-lg shadow-lg"
+                />
+              </div>
+              
+              <!-- M3 Models -->
+              <div class="space-y-6">
+                <!-- Canon Colorado M3 Base -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m3-base-set-printer-64in" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M3 Base</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (4 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M3</li>
+                  </ul>
+                </div>
+
+                <!-- Canon Colorado M3W -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m3w-set-printer-64in" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M3W</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (5 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M3</li>
+                    <li>• Colorado M-series License White</li>
+                    <li>• PRISMAguide XL Pro for Colorado</li>
+                  </ul>
+                </div>
+
+                <!-- Canon Colorado M3 PRO -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m3-pro-set-printer-64in" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M3 PRO</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (4 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M3</li>
+                    <li>• License Inside Roll Printing or 2-sided</li>
+                    <li>• License Second Roll In Drawer</li>
+                    <li>• Colorado M-series License FLXfinish+</li>
+                  </ul>
+                </div>
+
+                <!-- Canon Colorado M3W PRO -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m3w-pro-set-printer-64in" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M3W PRO</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (5 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M3</li>
+                    <li>• License Inside Roll Printing or 2-sided</li>
+                    <li>• License Second Roll In Drawer</li>
+                    <li>• Colorado M-series License FLXfinish+</li>
+                    <li>• Colorado M-series License White</li>
+                    <li>• PRISMAguide XL Pro for Colorado</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Column -->
+            <div class="flex-1 flex flex-col">
+              <!-- Right Image -->
+              <div class="text-center mb-8">
+                <img
+                  src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Canon Colorado 030223-151.jpg') }}"
+                  alt="Canon Colorado M-Series Operation"
+                  class="w-full h-auto max-h-[400px] object-contain rounded-lg shadow-lg"
+                />
+              </div>
+              
+              <!-- M5 Models -->
+              <div class="space-y-6">
+                <!-- Canon Colorado M5 PRO -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m5-pro-set-printer-64in" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M5 PRO</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (4 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M5</li>
+                    <li>• License Inside Roll Printing or 2-sided</li>
+                    <li>• License Second Roll In Drawer</li>
+                    <li>• Colorado M-series License FLXfinish+</li>
+                  </ul>
+                </div>
+
+                <!-- Canon Colorado M5W PRO -->
+                <div>
+                  <h3 class="text-h4 mb-3">
+                    <a href="https://www.lexjet.com/canon-colorado-m5w-pro-set-printer-64in-2" 
+                       class="text-primary hover:underline" 
+                       target="_blank" 
+                       rel="noopener">
+                      <strong>Canon Colorado M5W PRO</strong>
+                    </a>
+                  </h3>
+                  <ul class="text-gray-700 space-y-1 text-sm lg:text-base">
+                    <li>• M-series Base Printer</li>
+                    <li>• UVgel 425 Printhead (5 PCS)</li>
+                    <li>• Colorado License Base</li>
+                    <li>• Colorado M-series License Speed M5</li>
+                    <li>• License Inside Roll Printing or 2-sided</li>
+                    <li>• License Second Roll In Drawer</li>
+                    <li>• Colorado M-series License FLXfinish+</li>
+                    <li>• Colorado M-series License White</li>
+                    <li>• PRISMAguide XL Pro for Colorado</li>
+                  </ul>
+                </div>
+
+                <!-- Brochure Download -->
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                  <h3 class="text-h4 mb-4">
+                    <strong>Canon Colorado M-Series Brochure</strong>
+                  </h3>
+                  <a href="src/sone-theme/images/canon-colorado-m-series/Canon-Colorado-m-series-brochure-1.jpg" 
+                     target="_blank" 
+                     class="inline-block">
+                    <img
+                      src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Canon-Colorado-m-series-brochure-1.jpg') }}"
+                      alt="Canon Colorado M-Series Brochure"
+                      class="w-32 lg:w-48 h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow mx-auto"
+                    />
+                  </a>
+                  <p class="text-gray-600 mt-4 text-sm lg:text-base">
+                    <a href="src/sone-theme/images/canon-colorado-m-series/Canon-Colorado-m-series-brochure-1.jpg" 
+                       target="_blank" 
+                       class="text-primary hover:underline">
+                      Click to download brochure
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Technical Details Image -->
+          <div class="text-center mt-12">
+            <img
+              src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Colorado-M-Details-1.jpg') }}"
+              alt="Canon Colorado M-Series Technical Details"
+              class="mx-auto max-w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Specifications Section -->
+      <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-8">
+          <h2 class="text-h2 mb-8">Technical Specifications</h2>
+          <img
+            src="{{ get_asset_url('../images/lexjet/canon-colorado-m-series/Colorado-M-Specs-1.jpg') }}"
+            alt="Canon Colorado M-Series Specifications"
+            class="mx-auto max-w-full h-auto rounded-lg shadow-lg mb-8"
+          />
+          
+          <div class="grid md:grid-cols-2 gap-8 text-left">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-h4 mb-4 text-primary">
+                <i class="fas fa-cogs mr-3"></i>
+                Modular Design
+              </h3>
+              <p class="text-gray-600">
+                Start with basic configuration and expand with additional modules as your 
+                business requirements grow and change.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-h4 mb-4 text-primary">
+                <i class="fas fa-chart-line mr-3"></i>
+                Scalable Production
+              </h3>
+              <p class="text-gray-600">
+                From entry-level productivity to high-volume industrial operations, 
+                find the perfect match for your production needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section id="contact" class="py-16 bg-primary text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-8">
+          <h2 class="text-h2 mb-6">Ready to Take Your Printing to the Next Level?</h2>
+          <p class="text-h4 mb-8 opacity-90">
+            Discover how the Canon Colorado M-Series can transform your productivity and unlock 
+            new creative possibilities for your business.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a 
+              href="tel:8004539538"
+              class="bg-white text-black px-8 py-4 text-lg font-semibold rounded hover:bg-gray-100 inline-flex items-center justify-center"
+            >
+              <i class="fas fa-phone mr-3"></i>
+              Call 800-453-9538
+            </a>
+            <a 
+              href="https://www.lexjet.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold rounded inline-flex items-center justify-center"
+            >
+              <i class="fas fa-file-alt mr-3"></i>
+              Request Information
+            </a>
+            <a 
+              href="src/sone-theme/images/canon-colorado-m-series/Canon-Colorado-m-series-brochure-1.jpg"
+              target="_blank"
+              class="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold rounded inline-flex items-center justify-center"
+            >
+              <i class="fas fa-download mr-3"></i>
+              Download Brochure
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    {% include "./partials/footer.hubl.html" %}
+  {% endblock %}

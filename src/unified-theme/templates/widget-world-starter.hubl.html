@@ -1,0 +1,33 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Widget World Starter
+-->
+
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+    {% include "./partials/header.hubl.html" %}
+
+    <main>
+        <div class="container" style="padding: var(--space-2xl) 0;">
+            <div class="text-center">
+                <h1>Welcome to Widget World</h1>
+                <p class="mb-lg">Start building your page by adding content modules below.</p>
+                <p class="text-muted">This is a clean starter template for the Levitate Theme.</p>
+            </div>
+
+            <div style="margin-top: var(--space-2xl);">
+                <!-- Content area for drag and drop modules -->
+                <div class="card">
+                    <h3>Add Your Content Here</h3>
+                    <p>This template provides a clean foundation for building custom pages. Replace this content with your own modules and components.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include "./partials/footer.hubl.html" %}
+
+{% endblock %}

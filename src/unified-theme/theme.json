@@ -1,7 +1,7 @@
 {
-  "label": "Levitate Theme 2025.01",
-  "author": "Lory Livezey",
-  "preview_path": "./templates/widget-world-homepage.html",
+  "label": "S-One Theme 2025.01",
+  "author": "S-One Digital",
+  "preview_path": "./templates/lexjet-capital-equipment.html",
   "screenshot_path": "./images/template-previews/home.png",
   "pinned_module_versions": {
     "@hubspot/divider": "1",

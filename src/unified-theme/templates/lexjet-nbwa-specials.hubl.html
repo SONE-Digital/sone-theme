@@ -1,0 +1,226 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Lexjet Nbwa Specials
+-->
+
+{% extends "./layouts/lexjet.hubl.html" %}
+
+{% block body %}
+
+    {% include "./partials/header.hubl.html" %}
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section
+        class="relative w-full h-[556px] overflow-hidden max-[600px]:h-auto"
+      >
+        <!-- Layout container -->
+        <div
+          class="relative mx-auto max-w-[1440px] h-full flex max-[600px]:flex-col max-[600px]:items-center max-[600px]:justify-center max-[600px]:py-5 max-[600px]:pt-10"
+        >
+          <!-- Text Container -->
+          <div
+            class="flex items-center z-10 pl-8 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 max-[600px]:pr-16 max-[600px]:w-full max-[600px]:justify-center w-[600px]"
+          >
+            <div class="w-[546px] max-[600px]:w-full max-[600px]:text-center">
+              <h1 class="text-h1">NBWA Show Specials</h1>
+              <p class="text-h5 mt-4">Save big on top print technology with LexJet's exclusive NBWA Show Specials perfect for producing in-house retail and promotional signage.</p>
+
+              <a
+                href="#products"
+                class="btn btn-primary mt-6 inline-flex whitespace-nowrap max-[600px]:mx-auto"
+              >
+                View Specials
+              </a>
+            </div>
+          </div>
+
+          <!-- Image Container -->
+          <div class="h-full w-[874px] hidden md:block">
+            <img
+              src="{{ get_asset_url('../images/lexjet/capital-equipment/hero-image.jpg') }}"
+              alt="Printer Collage Banner"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section id="products" class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          Canon
+        </h2>
+        <div class="text-h8 space-y-4">
+          <p class="text-h4 font-bold">Canon imagePROGRAF GP-4600S 44" - $2,495.00 (60% OFF)</p>
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Perfect for producing all your retail and promotional display signage needs in-house</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Create posters, banners, floor/wall/window decals, cooler wraps, and more</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Price includes FREE shipping and a full set of 330mL inks (limited availability)</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          Epson
+        </h2>
+        <div class="text-h8 space-y-4">
+          <p class="font-semibold">FREE 2-year warranty included on Epson printers purchased from LexJet.</p>
+          <p>These exclusive Epson offers apply to a wide range of printers designed for every production need:</p>
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Additional promotional discounts on printers and consumables for beverage distributors and wholesalers</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span><strong>36" or 44" T-Series:</strong> Produce retail and promotional display signage needs in-house</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span><strong>64" Resin or Solvent:</strong> Lower production costs and increased durability (outdoor, too)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span><strong>V1070 Desktop Printer:</strong> Direct-to-object printing of custom promotional items in-house</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span><strong>4x8 V7000 Flatbed Printer:</strong> Print direct to rigid material, eliminating the "print-and-mount" workflow</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          EFI
+        </h2>
+        <div class="text-h8 space-y-4">
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Best-in-class pricing on all EFI UV flatbed, roll-to-roll, or hybrid printers and consumables for beverage distributors and wholesalers. Take your in-house printing to the next level with lower job costs, fast production turnaround times, and enhanced capabilities to handle any application.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Promotions and inclusions vary by model, ask a sales rep for specific details.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          HP
+        </h2>
+        <div class="text-h8 space-y-4">
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Best-in-class pricing on all HP latex printers and consumables for beverage distributors and wholesalers.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Specials are available on roll-to-roll latex printers or direct-to-rigid/hybrid latex printers. Promotions and inclusions vary by model, ask a sales rep for specific details.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          IntoPrint
+        </h2>
+        <div class="text-h8 space-y-4">
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span><strong>IntoPrint SP1360 13" Printer - $4,495 (25% OFF)</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Perfect for all your small format signage needs such as shelf tags, cooler clings and decals, case cards, and more</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Price includes FREE standard dock-to-dock shipping and a full set of toners</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          Mimaki
+        </h2>
+        <div class="text-h8 space-y-4">
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Best-in-class pricing on all Mimaki UV printers and consumables for beverage distributors and wholesalers.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Specials are available on roll-to-roll UV printers or direct-to-rigid flatbed printers. Promotions and inclusions vary by model, ask a sales rep for specific details.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8">
+      <section class="relative py-8 text-left z-10">
+        <h2 class="text-h3 [@media(min-width:600px)]:text-h2 mb-8">
+          LexJet Printable Media
+        </h2>
+        <div class="text-h8 space-y-4">
+          <ul class="text-h14 space-y-4 mt-0 text-text">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Exclusive discounts for beverage distributors and wholesalers on ALL LexJet branded printable media.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-primary mt-1"></i>
+              <span>Discounts vary by product. Ask a sales rep for specific details to start saving today.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="w-full bg-primary text-white">
+      <section class="py-16 px-4 text-center">
+        <div class="max-w-[1440px] mx-auto space-y-10 px-4">
+          <h2 class="text-h2">Questions About Our Special Offers?</h2>
+          <p class="text-h5">Contact our team to learn more about these exclusive NBWA deals</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="tel:8004539538" class="btn btn-secondary">Call 800-453-9538</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    {% include "./partials/footer.hubl.html" %}
+  {% endblock %}
