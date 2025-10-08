@@ -235,41 +235,37 @@ For new React modules, the field generation process requires:
 3. Run `npm run generate-tmp-json-for-translations` from unified-theme directory
 4. This creates the necessary JSON field definitions for HubSpot recognition
 
-### Last Session Work Summary
-The most recent work involved fixing the broken blog templates:
+### Last Session Work Summary (2025-10-08)
+Created NBWA Specials page and deployed S-One Theme 2025.02 to live LexJet portal.
 
-#### Blog Template Issues & Resolution
-1. **Problem**: Mixed CSS frameworks (Tailwind + Bootstrap/HubSpot Elevate) caused CSS conflicts and broken layouts
-2. **Initial Attempts**: Tried to make custom blog templates work with Elevate classes but created more conflicts
-3. **Final Solution**: Completely reset to original HubSpot CMS Elevate theme blog templates
+#### NBWA Specials Page
+1. **Created**: `mockup/templates/pages/lexjet-nbwa-specials.html`
+   - NBWA Show Specials content with vendor sections (Canon, Epson, EFI, HP, IntoPrint, Mimaki, LexJet Media)
+   - Styled to match capital equipment page (simple sections without cards)
+   - Font Awesome 6.5.0 checkmark bullets (`fa-circle-check`) for all list items
+   - Absolute image paths: `/src/unified-theme/images/lexjet/...`
+2. **Updated**: `mockup/index.html` to include link to new NBWA page
+3. **Deployed**: Successfully pushed to GitHub lexjet branch
 
-#### Blog Template Restoration Process
-1. **Deleted broken files**: Removed all custom blog templates and CSS modifications
-2. **Downloaded originals**: Pulled fresh templates from https://github.com/HubSpot/cms-elevate-theme-public
-   - `blog-listing.hubl.html` - Original drag-and-drop blog listing template
-   - `blog-detail.hubl.html` - Original blog post detail template
-   - `blog.hubl.css` - Original HubSpot Elevate blog CSS
-3. **Minimal fixes applied**:
-   - Fixed CSS path in blog-detail.hubl.html: `../../assets/dist/css/blog.hubl.css` → `../../assets/vite-dist/css/blog.hubl.css`
-   - Added `{% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}` to blog-listing.hubl.html
-4. **Deployed successfully**: Original HubSpot templates now working with proper Elevate theme styling
+#### S-One Theme 2025.02 Deployment
+1. **Version Created**: Updated both `theme.json` and `hsproject.json` to version 2025.02
+2. **Upload Issue Resolved**: HubSpot upload was failing with "Unable to deserialize `/unified-theme/`" error
+   - **Root Cause**: Invalid `"author"` field in theme.json (must be object, not string)
+   - **Solution**: Removed author field and set `preview_path` to empty string (matching version 2025.01)
+3. **Successfully Deployed**: Build #4 succeeded and deployed to live LexJet portal (portalId: 4826009)
+   - View: https://app.hubspot.com/developer-projects/4826009/project/S-One%20Theme%202025.02/
 
 #### Key Lessons Learned
-- **Don't mix CSS frameworks**: Tailwind + Bootstrap/HubSpot Elevate creates conflicts
-- **Use original templates as base**: HubSpot Elevate templates are well-designed, modify minimally
-- **CSS path consistency**: Ensure template_css paths match your build system (vite-dist vs dist)
-- **Header/Footer integration**: Base layout handles header/footer properly, don't override unless necessary
+- **theme.json author field**: Must be object with `name`, `email`, `url` properties, not a simple string
+- **theme.json preview_path**: Can be empty string if no specific preview template needed
+- **Simple theme.json works**: Minimal configuration (label, preview_path, screenshot_path, modules) is sufficient
+- **Git credentials**: Windows Credential Manager can cache wrong GitHub account credentials
+- **Theme versioning**: Both `theme.json` label and `hsproject.json` name must match for proper deployment
 
-### Current Blog Status
-- **Blog listing**: Uses original HubSpot drag-and-drop template with BlogListing module
-- **Blog detail**: Uses original HubSpot blog post template with proper meta, comments, etc.
-- **CSS**: Original HubSpot Elevate blog styling (no custom modifications)
-- **Layout**: Extends base.hubl.html (not lexjet.hubl.html) to avoid Tailwind conflicts
-
-### Next Steps (if session continues)
-- Test blog functionality in HubSpot
-- If customization needed, modify the BlogListing React component instead of the template
-- For styling changes, modify blog.hubl.css cautiously to avoid breaking existing structure
+#### Theme Configuration Files Updated
+- `src/unified-theme/theme.json`: Version 2025.02, removed invalid author field, empty preview_path
+- `hsproject.json`: Name updated to "S-One Theme 2025.02"
+- `hubspot.config.yml`: defaultPortal set to "lexjet" (production)
 
 ## Configuration Files
 - `vite.config.ts`: Main build configuration with HubL support
