@@ -239,19 +239,25 @@ for (const file of files) {
     // Check if this is a site-specific template
     const isSiteSpecific = fileNameParts.length > 1 && ["lexjet", "digiprint", "hp", "kodak"].includes(potentialSitePrefix);
     const isForCurrentSite = !isSiteSpecific || potentialSitePrefix === BASE_SITE;
-    
+
     content = replaceComponents(content);
     content = replaceAssetPaths(content);
-    
-    if (isForCurrentSite) {
-      // Template is for current site or shared - make it available
-      content = wrapWithHubSpotBlocks(content, label, BASE_SITE, true);
-      fs.writeFileSync(outputPath, content, "utf8");
-      console.log(`✔ Processed (${isSiteSpecific ? 'site-specific' : 'shared'}): ${file}`);
-    } else {
-      // Template is for a different site - skip it entirely
+
+    if (isSiteSpecific && !isForCurrentSite) {
+      // Template is for a different site - skip it entirely (don't even write the file)
       console.log(`⏭ Skipped (not for ${BASE_SITE}): ${file}`);
+      continue;
     }
+
+    // Determine if template should be available for new content
+    // Site-specific templates for current site: available
+    // Shared templates (widget-world, etc.): NOT available (hide from content creators)
+    const isAvailable = isSiteSpecific && isForCurrentSite;
+
+    content = wrapWithHubSpotBlocks(content, label, BASE_SITE, isAvailable);
+    fs.writeFileSync(outputPath, content, "utf8");
+    console.log(`✔ Processed (${isSiteSpecific ? 'site-specific' : 'shared - hidden'}): ${file}`);
+
   } catch (err) {
     console.error(`❌ Error processing ${file}:`, err.message);
   }
