@@ -173,6 +173,31 @@ function themePlugin({ addComponents, addUtilities, theme }) {
     },
   };
 
+  // Product card equal heights
+  otherComponents['.grid > a.block'] = {
+    display: 'flex !important',
+    height: '100%',
+  };
+
+  otherComponents['.grid > a.block > div'] = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+  };
+
+  otherComponents['.grid > a.block > div > img'] = {
+    flexShrink: '0',
+  };
+
+  otherComponents['.grid > a.block > div > ul'] = {
+    flexGrow: '1',
+  };
+
+  otherComponents['.grid > a.block > div > p'] = {
+    flexGrow: '1',
+  };
+
   // Generate color utilities from theme colors as components to ensure they're included
   const colorComponents = {};
   for (const [colorName, colorValue] of Object.entries(themeJson.colors)) {
