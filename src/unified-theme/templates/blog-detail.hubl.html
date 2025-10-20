@@ -50,12 +50,14 @@
 
     </div>
 
+    {# Audio narration module temporarily disabled due to rendering error
     <div class="hs-elevate-blog-audio-narration">
       {% module "narration"
         path="@hubspot/blog_audio",
         overrideable=False
       %}
     </div>
+    #}
 
     <div class="hs-elevate-blog-content ">
       {{ content.post_body }}
