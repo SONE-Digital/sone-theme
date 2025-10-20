@@ -1,0 +1,57 @@
+<!--
+  templateType: global_partial
+  label: Website footer (Bootstrap)
+-->
+
+{# Partial variables #}
+
+{# Partial #}
+
+<style>
+  .lexjet-footer {
+    background-color: #002855;
+    padding: 20px 0;
+    height: 164px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 64px;
+  }
+
+  .lexjet-footer-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .lexjet-footer-logo {
+    width: 130px;
+    height: 32px;
+    object-fit: cover;
+  }
+
+  .lexjet-footer-copyright {
+    color: #fff;
+    font-size: 14px;
+    text-align: right;
+    line-height: 1.6;
+  }
+</style>
+
+<footer class="lexjet-footer">
+  <div class="lexjet-footer-container">
+    <!-- Logo -->
+    <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
+      <img src="{{ get_asset_url('../../images/lexjet/lexjet-logo-white.png') }}" alt="LexJet Logo" class="lexjet-footer-logo">
+    </a>
+
+    <!-- Copyright -->
+    <div class="lexjet-footer-copyright">
+      Copyright © 2025 LexJet - Inkjet Printers, Media, Ink Cartridges and More. All rights reserved.
+    </div>
+  </div>
+</footer>
