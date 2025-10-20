@@ -393,3 +393,73 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   -webkit-text-decoration-color: var(--hsElevate--card--variant3--link__hover--textDecorationColor);
   text-decoration-color: var(--hsElevate--card--variant3--link__hover--textDecorationColor);
 }
+
+/* LexJet Custom Blog Styling */
+
+/* LexJet Color Overrides - Replace Elevate Purple with LexJet Blue */
+a {
+  color: #007BFF !important;
+}
+
+a:hover {
+  color: #0056b3 !important;
+}
+
+.hs-elevate-tag {
+  background-color: #007BFF !important;
+  color: #ffffff !important;
+}
+
+/* Social Icons */
+.hs-elevate-blog-post-social-sharing svg {
+  fill: #007BFF !important;
+}
+
+.hs-elevate-blog-post-social-sharing a:hover svg {
+  fill: #0056b3 !important;
+}
+
+/* Blog Comment Form Input Fields Styling */
+.hs-elevate-blog-comments-container input[type="text"],
+.hs-elevate-blog-comments-container input[type="email"],
+.hs-elevate-blog-comments-container textarea {
+  border-radius: 4px !important;
+  border: 1px solid #ddd !important;
+  padding: 8px 12px !important;
+  width: 100% !important;
+}
+
+.hs-elevate-blog-comments-container input[type="text"]:focus,
+.hs-elevate-blog-comments-container input[type="email"]:focus,
+.hs-elevate-blog-comments-container textarea:focus {
+  border-color: #007BFF !important;
+  outline: none !important;
+}
+
+/* Blog Comment Form Button Styling */
+.hs-elevate-blog-comments-container input[type="submit"],
+.hs-elevate-blog-comments-container button[type="submit"] {
+  color: #000000 !important;
+  background-color: transparent !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  text-transform: uppercase !important;
+  padding: .375rem .75rem !important;
+  border: 2px solid black !important;
+  border-radius: 4px !important;
+  max-width: 300px !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1rem auto 0 auto !important;
+}
+
+.hs-elevate-blog-comments-container input[type="submit"]:hover,
+.hs-elevate-blog-comments-container button[type="submit"]:hover {
+  color: #007BFF !important;
+  border-color: #007BFF !important;
+  background-color: transparent !important;
+}
