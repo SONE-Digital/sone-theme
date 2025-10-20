@@ -4,6 +4,7 @@
   "description": "HubSpot's default CMS theme: Elevate",
   "scripts": {
     "build": "vite build",
+    "postbuild": "node sync-dist-to-vite-dist.js",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
     "yarn-start": "cd src/unified-theme && yarn start",
