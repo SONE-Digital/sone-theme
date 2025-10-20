@@ -341,7 +341,7 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   text-decoration: var(--hsElevate--card--variant3--link__hover--textDecoration);
   text-decoration-color: var(--hsElevate--card--variant3--link__hover--textDecorationColor);
 }
-/* LexJet Custom Blog Styling - Updated */
+/* LexJet Custom Blog Styling - v2 */
 /* LexJet Color Overrides - Replace Elevate Purple with LexJet Blue */
 a {
   color: #007BFF !important;
