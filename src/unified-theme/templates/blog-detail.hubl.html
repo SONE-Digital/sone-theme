@@ -5,9 +5,11 @@
   screenshotPath: '../images/template-previews/blog-post.png'
 -->
 {% set template_css = "../../assets/vite-dist/css/blog.hubl.css" %}
-{% extends "./layouts/base.hubl.html" %}
+{% extends "./layouts/lexjet.hubl.html" %}
 
 {% block body %}
+
+{% include "./partials/header.hubl.html" %}
 
 <div class="hs-elevate-content-wrapper">
 
@@ -142,4 +144,6 @@
   </div>
   </section>
 {% endif %}
+
+{% include "./partials/footer.hubl.html" %}
 {% endblock %}
