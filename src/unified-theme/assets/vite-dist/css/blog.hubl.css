@@ -1,369 +1,3 @@
-/* Blog Header Styles */
-.blog-header {
-  background-color: white;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.blog-header .divider-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-}
-
-.blog-header .container {
-  margin: 0 auto;
-  max-width: 1440px;
-  height: 98px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  position: relative;
-}
-
-.blog-header .logo {
-  width: 131px;
-  height: 32px;
-  object-fit: cover;
-}
-
-.blog-header .nav {
-  margin-left: auto;
-  display: flex;
-  gap: 24px;
-  font-size: 14px;
-  letter-spacing: 0.28px;
-  white-space: nowrap;
-}
-
-.blog-header .btn-link {
-  background-color: transparent;
-  color: #000000;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
-  height: 24px;
-  text-transform: uppercase;
-  padding: 0;
-  border-radius: 0px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-}
-
-.blog-header .btn-link:hover {
-  color: #007BFF;
-}
-
-@media (min-width: 576px) {
-  .blog-header .container {
-    padding: 0 32px;
-  }
-}
-
-@media (min-width: 768px) {
-  .blog-header .container {
-    padding: 0 64px;
-  }
-}
-
-@media (max-width: 599px) {
-  .blog-header .hide-mobile {
-    display: none;
-  }
-}
-
-/* Blog Hero Styles */
-.blog-hero {
-  position: relative;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blog-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blog-hero-content {
-  text-align: center;
-  color: white;
-  z-index: 1;
-}
-
-.blog-hero-title {
-  font-size: 48px;
-  font-weight: bold;
-  margin: 0 0 16px 0;
-}
-
-.blog-hero-subtitle {
-  font-size: 18px;
-  margin: 0;
-  opacity: 0.9;
-}
-
-@media (max-width: 768px) {
-  .blog-hero {
-    height: 300px;
-  }
-
-  .blog-hero-title {
-    font-size: 36px;
-  }
-
-  .blog-hero-subtitle {
-    font-size: 16px;
-  }
-}
-
-/* Blog Search Section */
-.blog-search-section {
-  padding: 40px 20px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
-}
-
-.blog-search-container {
-  max-width: 450px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
-}
-
-/* Style HubSpot's search input wrapper */
-.blog-search-input {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.blog-search-input form {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 40px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
-}
-
-.blog-search-input form:focus-within {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-color: #007bff;
-}
-
-.blog-search-input input[type="search"] {
-  flex: 1;
-  width: calc(100% - 70px);
-  padding: 15px 20px;
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-  font-size: 16px;
-  outline: none;
-  background-image: none;
-}
-
-.blog-search-input input[type="search"]:focus {
-  box-shadow: none;
-  border: none;
-  outline: none;
-}
-
-.blog-search-input input[type="search"]::placeholder {
-  color: #999;
-}
-
-/* Style HubSpot's search button */
-.blog-search-input button,
-.blog-search-input input[type="submit"] {
-  flex-shrink: 0;
-  width: 60px;
-  height: 54px;
-  border: none;
-  background: transparent;
-  color: #666;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease, background-color 0.2s ease;
-  padding: 0;
-  margin: 0;
-  border-radius: 0 40px 40px 0;
-}
-
-.blog-search-input button:hover,
-.blog-search-input input[type="submit"]:hover {
-  color: #007bff;
-  background-color: rgba(0, 123, 255, 0.05);
-}
-
-.blog-search-input button:active,
-.blog-search-input input[type="submit"]:active {
-  color: #0056b3;
-}
-
-/* Add search icon to button if it doesn't have one */
-.blog-search-input button:empty:after,
-.blog-search-input input[type="submit"]:empty:after {
-  content: "";
-  width: 24px;
-  height: 24px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  display: block;
-}
-
-/* Style any existing search icon in the button */
-.blog-search-input button svg,
-.blog-search-input input[type="submit"] svg,
-.blog-search-input button i,
-.blog-search-input input[type="submit"] i {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-  .blog-search-container {
-    margin: 0 16px;
-    max-width: calc(100% - 32px);
-  }
-
-  .blog-search-input input[type="search"] {
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
-}
-
-/* Style HubSpot search autocomplete/dropdown suggestions - minimal interference */
-.blog-search-input .hs-search-suggestions,
-.blog-search-input .hs-search-dropdown,
-.blog-search-input [data-search-dropdown],
-.blog-search-container .hs-search-suggestions,
-.blog-search-container .hs-search-dropdown,
-.blog-search-container [data-search-dropdown] {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.blog-search-input .hs-search-suggestion,
-.blog-search-input .hs-search-dropdown-item,
-.blog-search-input [data-search-item] {
-  padding: 12px 20px;
-  color: #333;
-  background-color: white;
-  border-bottom: 1px solid #f1f1f1;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.blog-search-input .hs-search-suggestion:hover,
-.blog-search-input .hs-search-dropdown-item:hover,
-.blog-search-input [data-search-item]:hover,
-.blog-search-input .hs-search-suggestion.selected,
-.blog-search-input .hs-search-dropdown-item.selected,
-.blog-search-input [data-search-item].selected {
-  background-color: #f8f9fa;
-  color: #007bff;
-}
-
-.blog-search-input .hs-search-suggestion:last-child,
-.blog-search-input .hs-search-dropdown-item:last-child,
-.blog-search-input [data-search-item]:last-child {
-  border-bottom: none;
-  border-radius: 0 0 12px 12px;
-}
-
-/* Style search result highlights */
-.blog-search-input .hs-search-highlight,
-.blog-search-input .search-highlight {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-  font-weight: 600;
-  padding: 1px 2px;
-  border-radius: 2px;
-}
-
-/* Generic dropdown styling that should catch most variations */
-.blog-search-input div[class*="dropdown"],
-.blog-search-input div[class*="suggestion"],
-.blog-search-input div[class*="autocomplete"],
-.blog-search-input ul[class*="suggestion"],
-.blog-search-input ul[class*="dropdown"] {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-height: 300px;
-  overflow-y: auto;
-  margin-top: -1px;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0;
-}
-
-.blog-search-input li[class*="suggestion"],
-.blog-search-input li[class*="dropdown"],
-.blog-search-input div[class*="suggestion"]:not([class*="container"]),
-.blog-search-input a[class*="suggestion"] {
-  padding: 12px 20px;
-  color: #333;
-  background-color: white;
-  border-bottom: 1px solid #f1f1f1;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-  line-height: 1.4;
-  display: block;
-  text-decoration: none;
-}
-
-.blog-search-input li[class*="suggestion"]:hover,
-.blog-search-input li[class*="dropdown"]:hover,
-.blog-search-input div[class*="suggestion"]:not([class*="container"]):hover,
-.blog-search-input a[class*="suggestion"]:hover {
-  background-color: #f8f9fa;
-  color: #007bff;
-  text-decoration: none;
-}
-
 /* Blog Post */
 .hs-elevate-blog-image-container {
   position: relative;
@@ -373,7 +7,6 @@
   aspect-ratio: 2.2;
   margin-block: var(--hsElevate--spacing--40);
 }
-
 :is(.hs-elevate-blog-image-container, .hs-elevate-blog-meta__image-container) img {
   position: relative;
   height: 100%;
@@ -383,11 +16,9 @@
   -o-object-position: center;
   object-position: center;
 }
-
 .hs-elevate-blog-content-container {
   margin-block: var(--hsElevate--spacing--40);
 }
-
 .hs-elevate-blog-tags-container {
   display: flex;
   flex-direction: row;
@@ -397,7 +28,6 @@
   gap: var(--hsElevate--spacing--12);
   margin-block-end: var(--hsElevate--spacing--20);
 }
-
 .hs-elevate-blog-meta {
   display: flex;
   flex-direction: row;
@@ -408,7 +38,6 @@
   gap: var(--hsElevate--spacing--12);
   margin-block-end: var(--hsElevate--spacing--40);
 }
-
 .hs-elevate-blog-meta__image-container {
   position: relative;
   overflow: hidden;
@@ -417,7 +46,6 @@
   border-radius: 50%;
   flex: 0 0 64px;
 }
-
 .hs-elevate-blog-meta__content {
   display: flex;
   flex-direction: row;
@@ -426,8 +54,7 @@
   justify-content: flex-start;
   gap: var(--hsElevate--spacing--12);
 }
-
-@media (width <= 500px) {
+@media (max-width: 500px) {
   .hs-elevate-blog-meta__content {
     flex-direction: column;
     align-items: flex-start;
@@ -439,69 +66,58 @@
     display: none;
   }
 }
-
 .hs-elevate-blog-share,
 .hs-elevate-blog-content {
   margin-block-end: var(--hsElevate--spacing--80);
 }
-
 .hs-elevate-blog-audio-narration .hs-audio-player {
   margin-block-end: var(--hsElevate--spacing--40);
 }
-
 /* Blog post comments */
-
 .hs-elevate-blog-comments-container {
   margin-block-end: var(--hsElevate--spacing--80);
 }
-
 /* Blog post recent posts */
-
 .hs-elevate-blog-recent-posts {
   background-color: var(--hsElevate--section--lightSection--2__backgroundColor);
   padding-block: var(--hsElevate--spacing--80);
 }
-
 .hs-elevate-blog-recent-posts__heading {
   color: var(--hsElevate--section--lightSection--2__textColor);
   margin-block-end: var(--hsElevate--spacing--64);
   text-align: center;
 }
-
 .hs-elevate-blog-recent-posts__card-container {
   display: grid;
   margin-bottom: var(--hsElevate--spacing--48, 48px);
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(auto, 1fr);
+  grid-gap: 32px;
   gap: 32px;
 }
-
-@media (width >= 768px) {
+@media (min-width: 768px) {
   .hs-elevate-blog-recent-posts__card-container {
     display: grid;
     margin-bottom: var(--hsElevate--spacing--48, 48px);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto, 1fr);
+    grid-gap: 32px;
     gap: 32px;
   }
 }
-
 .hs-elevate-card--recent-post {
   overflow: hidden;
   padding: 0;
 }
-
 .hs-elevate-card--recent-post__link {
   display: block;
   height: 100%;
   width: 100%;
   text-decoration: none;
 }
-
 body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   text-decoration: none;
 }
-
 .hs-elevate-card--recent-post__image-container {
   position: relative;
   overflow: hidden;
@@ -510,7 +126,6 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   aspect-ratio: 1.41;
   background-color: var(--hsElevate--card--variant1__iconBackgroundColor);
 }
-
 .hs-elevate-card--recent-post__image-container img {
   position: relative;
   height: 100%;
@@ -520,11 +135,9 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   -o-object-position: center;
   object-position: center;
 }
-
 .hs-elevate-card--recent-post__content-container {
   padding: var(--hsElevate--spacing--32, 32px);
 }
-
 .hs-elevate-card--recent-post__tag-container {
   display: flex;
   margin-bottom: var(--hsElevate--spacing--24, 24px);
@@ -534,83 +147,12 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   justify-content: flex-start;
   gap: var(--hsElevate--spacing--8, 8px);
 }
-
 .hs-elevate-card--recent-post__title {
   margin-bottom: 0;
   color: var(--hsElevate--card--variant2__textColor);
   text-decoration: none;
 }
-
-/* LexJet Color Overrides - Replace Elevate Purple with LexJet Blue */
-a {
-  color: #007BFF !important;
-}
-
-a:hover {
-  color: #0056b3 !important;
-}
-
-.hs-elevate-tag {
-  background-color: #007BFF !important;
-  color: #ffffff !important;
-}
-
-/* Social Icons */
-.hs-elevate-blog-post-social-sharing svg {
-  fill: #007BFF !important;
-}
-
-.hs-elevate-blog-post-social-sharing a:hover svg {
-  fill: #0056b3 !important;
-}
-
-/* Blog Comment Form Input Fields Styling */
-.hs-elevate-blog-comments-container input[type="text"],
-.hs-elevate-blog-comments-container input[type="email"],
-.hs-elevate-blog-comments-container textarea {
-  border-radius: 4px !important;
-  border: 1px solid #ddd !important;
-  padding: 8px 12px !important;
-  width: 100% !important;
-}
-
-.hs-elevate-blog-comments-container input[type="text"]:focus,
-.hs-elevate-blog-comments-container input[type="email"]:focus,
-.hs-elevate-blog-comments-container textarea:focus {
-  border-color: #007BFF !important;
-  outline: none !important;
-}
-
-/* Blog Comment Form Button Styling */
-.hs-elevate-blog-comments-container input[type="submit"],
-.hs-elevate-blog-comments-container button[type="submit"] {
-  color: #000000 !important;
-  background-color: transparent !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  line-height: 18px !important;
-  text-transform: uppercase !important;
-  padding: .375rem .75rem !important;
-  border: 2px solid black !important;
-  border-radius: 4px !important;
-  max-width: 300px !important;
-  white-space: nowrap !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease-in-out !important;
-  height: auto !important;
-  display: inline-block !important;
-  margin: 1rem auto 0 auto !important;
-}
-
-.hs-elevate-blog-comments-container input[type="submit"]:hover,
-.hs-elevate-blog-comments-container button[type="submit"]:hover {
-  color: #007BFF !important;
-  border-color: #007BFF !important;
-  background-color: transparent !important;
-}
-
 /* Overrides for blog comment module styles (hubl tag) */
-
 .hs-elevate-blog-comments-container .post-footer {
   display: flex;
   flex-direction: column;
@@ -619,7 +161,6 @@ a:hover {
   justify-content: flex-start;
   gap: var(--hsElevate--spacing--48);
 }
-
 /* Override spacing */
 .hs-elevate-blog-comments-container .comment.depth-0 {
   border-top: none;
@@ -627,21 +168,17 @@ a:hover {
   padding-block-start: var(--hsElevate--spacing--4);
   padding-inline-start: 2rem;
 }
-
 .hs-elevate-blog-comments-container .comment.depth-1 {
   padding-inline-start: 4rem;
 }
-
 .hs-elevate-blog-comments-container .comment.depth-2 {
   padding-inline-start: 6rem;
 }
-
 .hs-elevate-blog-comments-container
   :is(.comment.depth-3, .comment.depth-4, .comment.depth-5, .comment.depth-6, .comment.depth-7, .comment.depth-8, .comment.depth-9, .comment.depth-10) {
   padding-inline-start: 8rem;
 }
-
-@media (width <= 500px) {
+@media (max-width: 500px) {
   .hs-elevate-blog-comments-container .comment.depth-0 {
     padding-inline-start: 0.75rem;
   }
@@ -659,22 +196,18 @@ a:hover {
     padding-inline-start: 3rem;
   }
 }
-
 .hs-elevate-blog-comments-container .new-comments {
   width: 100%;
   margin: 0;
   order: 2;
 }
-
 .hs-elevate-blog-comments-container div:has(form) {
   order: 1;
 }
-
 .hs-elevate-blog-comments-container :is(div:has(form), form) {
   width: 100%;
   flex: 1 1 100%;
 }
-
 /*
   The following blog comments css is a bit complex
   because of how the default blog comments are added
@@ -686,18 +219,15 @@ a:hover {
   width: 100%;
   padding-block: 0 var(--hsElevate--spacing--32);
 }
-
 /*
   Subcomments that are next to a top level comment should have 30px os margin
   Only place where we can use margin. Because we don't want separate threads
   to be touching.
  */
-
 /* Subcomments should have 20px of gap between them */
 .hs-elevate-blog-comments-container .comment:has(+ .comment:not(.depth-0)) {
   padding-block-end: var(--hsElevate--spacing--20);
 }
-
 /*
   Sub comments who are followed by more subcomments,
   or the last comment in the entire comment list
@@ -706,40 +236,33 @@ a:hover {
 .hs-elevate-blog-comments-container .comment:not(.depth-0):has(+ .comment.depth-0) {
   padding-block-end: var(--hsElevate--spacing--4);
 }
-
 /* Add bottom margin to last comment in thread before an additional top level comment */
 .hs-elevate-blog-comments-container .comment:not(.depth-0):has(+ .comment:is(.depth-0)) {
   margin-block-end: var(--hsElevate--spacing--32);
 }
-
 /* Line up all non-thread comments to the edge of container */
 .hs-elevate-blog-comments-container .comment.depth-0:last-child,
 .hs-elevate-blog-comments-container .comment.depth-0:has(+ .comment.depth-0) {
   padding-inline-start: 0;
 }
-
 .hs-elevate-blog-comments-container .comment-from h4 {
   font-family: var(--hsElevate--h5__font);
   font-size: calc(var(--hsElevate--h5__fontSize));
   font-style: var(--hsElevate--h5__fontStyle);
   font-weight: var(--hsElevate--h5__fontWeight);
 }
-
 .hs-elevate-blog-comments-container :is(.comment-date, .comment-from, .comment-from h4) {
   display: block;
 }
-
 .hs-elevate-blog-comments-container :is(.comment-date, .comment-from h4, .comment-body *:last-child) {
   margin-block-end: var(--hsElevate--spacing--8);
 }
-
 .hs-elevate-blog-comments-container .comment-reply-to {
   position: relative;
   background-image: none;
   color: var(--hsElevate--section--lightSection--1--link__fontColor);
   overflow-wrap: anywhere;
 }
-
 .hs-elevate-blog-comments-container .comment-reply-to:before {
   position: absolute;
   top: 50%;
@@ -762,11 +285,9 @@ a:hover {
   mask-repeat: no-repeat;
   transform: translateY(-50%);
 }
-
 .hs-elevate-blog-comments-container .comment-reply-to em {
   font-style: normal;
 }
-
 /* Add the accent bar (left bar) to visually group threads */
 .hs-elevate-blog-comments-container .comment ~ .comment:not(.depth-0):after,
 .hs-elevate-blog-comments-container .comment:has(+ .comment:not(.depth-0)):after {
@@ -780,7 +301,6 @@ a:hover {
   content: '';
   opacity: 0.6;
 }
-
 /* Blog gate styles */
 .hs-membership-gated-content {
   border-color: var(--hsElevate--card--variant2__borderColor);
@@ -789,7 +309,6 @@ a:hover {
   background-color: var(--hsElevate--card--variant2__backgroundColor);
   color: var(--hsElevate--card--variant2__textColor);
 }
-
 .hs-membership-gated-content__button.button {
   display: inline-block;
   padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--24, 24px);
@@ -803,27 +322,82 @@ a:hover {
   font-weight: var(--hsElevate--button--primary__fontWeight);
   text-decoration: none;
 }
-
 .hs-membership-gated-content__button.button:hover {
   border-width: var(--hsElevate--button--primary__hover--borderThickness);
   background-color: var(--hsElevate--button--primary__hover--backgroundColor);
   color: var(--hsElevate--button--primary__hover--textColor);
   text-decoration: none;
 }
-
 .hs-membership-gated-content__sign-up-link {
   color: var(--hsElevate--card--variant2--link__fontColor);
   margin-inline-start: 5px;
   -webkit-text-decoration: var(--hsElevate--card--variant2--link__textDecoration);
   text-decoration: var(--hsElevate--card--variant2--link__textDecoration);
-  -webkit-text-decoration-color: var(--hsElevate--card--variant3--link__textDecorationColor);
   text-decoration-color: var(--hsElevate--card--variant3--link__textDecorationColor);
 }
-
 .hs-membership-gated-content__sign-up-link:hover {
   color: var(--hsElevate--card--variant3--link__hover--fontColor);
   -webkit-text-decoration: var(--hsElevate--card--variant3--link__hover--textDecoration);
   text-decoration: var(--hsElevate--card--variant3--link__hover--textDecoration);
-  -webkit-text-decoration-color: var(--hsElevate--card--variant3--link__hover--textDecorationColor);
   text-decoration-color: var(--hsElevate--card--variant3--link__hover--textDecorationColor);
+}
+/* LexJet Custom Blog Styling - Updated */
+/* LexJet Color Overrides - Replace Elevate Purple with LexJet Blue */
+a {
+  color: #007BFF !important;
+}
+a:hover {
+  color: #0056b3 !important;
+}
+.hs-elevate-tag {
+  background-color: #007BFF !important;
+  color: #ffffff !important;
+}
+/* Social Icons */
+.hs-elevate-blog-post-social-sharing svg {
+  fill: #007BFF !important;
+}
+.hs-elevate-blog-post-social-sharing a:hover svg {
+  fill: #0056b3 !important;
+}
+/* Blog Comment Form Input Fields Styling */
+.hs-elevate-blog-comments-container input[type="text"],
+.hs-elevate-blog-comments-container input[type="email"],
+.hs-elevate-blog-comments-container textarea {
+  border-radius: 4px !important;
+  border: 1px solid #ddd !important;
+  padding: 8px 12px !important;
+  width: 100% !important;
+}
+.hs-elevate-blog-comments-container input[type="text"]:focus,
+.hs-elevate-blog-comments-container input[type="email"]:focus,
+.hs-elevate-blog-comments-container textarea:focus {
+  border-color: #007BFF !important;
+  outline: none !important;
+}
+/* Blog Comment Form Button Styling */
+.hs-elevate-blog-comments-container input[type="submit"],
+.hs-elevate-blog-comments-container button[type="submit"] {
+  color: #000000 !important;
+  background-color: transparent !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  text-transform: uppercase !important;
+  padding: .375rem .75rem !important;
+  border: 2px solid black !important;
+  border-radius: 4px !important;
+  max-width: 300px !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1rem auto 0 auto !important;
+}
+.hs-elevate-blog-comments-container input[type="submit"]:hover,
+.hs-elevate-blog-comments-container button[type="submit"]:hover {
+  color: #007BFF !important;
+  border-color: #007BFF !important;
+  background-color: transparent !important;
 }
