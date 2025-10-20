@@ -168,6 +168,22 @@ Each theme module follows this structure:
 - Theme extends HubSpot's module system with custom React components
 - Uses HubSpot's project-based theme framework, not design manager themes
 
+### CRITICAL: Theme Version and GitHub Integration
+**DO NOT change the theme version without updating GitHub integration in HubSpot!**
+
+The theme version is defined in TWO locations and MUST match for GitHub integration:
+1. `hsproject.json` - "name" field (e.g., "S-One Theme 2025.02")
+2. `src/unified-theme/theme.json` - "label" field (must match hsproject.json)
+
+**Current version**: S-One Theme 2025.03
+
+**If you need to create a new version:**
+- Update BOTH files with the same version number
+- The GitHub repository integration in HubSpot is linked to the project name
+- If you change the version, HubSpot will show: `Couldn't link your GitHub repository to your project. Make sure the 'name' field in your hsproject.json matches your 'projectName'`
+- To fix: Either revert to the original version OR manually update the GitHub integration in HubSpot UI
+- **Recommended**: Keep version 2025.02 unless explicitly creating a new major release
+
 ## Recent Session History & Critical Context
 
 ### Multi-Site Template Filtering System
