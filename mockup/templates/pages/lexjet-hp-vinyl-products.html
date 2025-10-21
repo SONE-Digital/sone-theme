@@ -13,8 +13,16 @@
     <style>
       .product-card {
         transition: all 0.3s ease;
+        cursor: pointer;
       }
       .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+      }
+      a.block.group {
+        cursor: pointer;
+      }
+      a.block.group:hover .product-card {
         transform: translateY(-4px);
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
       }
