@@ -343,10 +343,11 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
 }
 /* LexJet Custom Blog Styling - v2 */
 /* LexJet Color Overrides - Replace Elevate Purple with LexJet Blue */
-a {
+/* Only apply to blog content links, not header navigation */
+.hs-elevate-content-wrapper a:not(.btn-link) {
   color: #007BFF !important;
 }
-a:hover {
+.hs-elevate-content-wrapper a:not(.btn-link):hover {
   color: #0056b3 !important;
 }
 .hs-elevate-tag {
@@ -357,8 +358,16 @@ a:hover {
 .hs-elevate-social-share svg {
   fill: #007BFF !important;
 }
+.hs-elevate-social-share a {
+  background-color: #007BFF !important;
+  border-color: #007BFF !important;
+}
+.hs-elevate-social-share a:hover {
+  background-color: #0056b3 !important;
+  border-color: #0056b3 !important;
+}
 .hs-elevate-social-share a:hover svg {
-  fill: #0056b3 !important;
+  fill: #ffffff !important;
 }
 /* Blog Comment Form Input Fields Styling */
 .hs-elevate-blog-comments-container input[type="text"],
