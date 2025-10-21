@@ -136,6 +136,11 @@ Each theme module follows this structure:
 - **Output**: Built files go to `src/unified-theme/assets/vite-dist/`
 - **CSS**: Processes multiple entry points (main, templates-specific stylesheets)
 
+### CSS Framework Usage
+- **Blog Templates**: Use Bootstrap for styling
+- **All Other Pages**: Use Tailwind CSS framework
+- This dual framework approach maintains consistency with existing blog infrastructure while leveraging Tailwind for new page development
+
 ## Development Patterns
 
 ### Component Development
