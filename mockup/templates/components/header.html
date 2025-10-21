@@ -1,48 +1,114 @@
-<header class="bg-white sticky top-0 z-50 shadow">
-  <!-- Divider line -->
-  <img
-    src="/src/unified-theme/images/lexjet/capital-equipment/divider-line.svg"
-    alt="Divider line"
-    class="absolute bottom-0 left-0 w-full h-0.5"
-  />
+<style>
+  .lexjet-header {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
 
-  <div
-    class="mx-auto max-w-[1440px] h-[98px] flex items-center px-[10px] sm:px-8 md:px-16 relative"
-  >
+  .lexjet-header-container {
+    margin: 0 auto;
+    max-width: 1440px;
+    height: 98px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    position: relative;
+  }
+
+  .lexjet-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5px;
+  }
+
+  .lexjet-logo {
+    width: 131px;
+    height: 32px;
+    object-fit: cover;
+  }
+
+  .lexjet-nav {
+    margin-left: auto;
+    display: flex;
+    gap: 24px;
+    white-space: nowrap;
+  }
+
+  .lexjet-nav .btn-link {
+    background-color: transparent;
+    border-radius: 0;
+    color: #000 !important;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    height: 24px;
+    line-height: 18px;
+    padding: 0;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+    letter-spacing: 0.28px;
+  }
+
+  .lexjet-nav .btn-link:hover,
+  .lexjet-nav .btn-link:focus {
+    color: #007BFF !important;
+    text-decoration: none !important;
+  }
+
+  .lexjet-nav .btn-link:visited {
+    color: #000 !important;
+  }
+
+  .lexjet-nav .btn-link:active {
+    color: #007BFF !important;
+  }
+
+  @media (min-width: 640px) {
+    .lexjet-header-container {
+      padding: 0 32px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .lexjet-header-container {
+      padding: 0 64px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
+</style>
+
+<header class="lexjet-header">
+  <!-- Divider line -->
+  <img src="../images/lexjet/capital-equipment/divider-line.svg" alt="Divider line" class="lexjet-divider">
+
+  <div class="lexjet-header-container">
     <!-- Logo -->
     <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
-      <img
-        src="/src/unified-theme/images/lexjet/lexjet-logo.png"
-        alt="LexJet Logo"
-        class="w-[131px] h-8 object-cover"
-      />
+      <img src="../images/lexjet/lexjet-logo.png" alt="LexJet Logo" class="lexjet-logo">
     </a>
 
     <!-- Navigation -->
-    <div
-      class="ml-auto flex space-x-6 text-h13 tracking-[0.28px] text-[#232323] whitespace-nowrap"
-    >
-      <a
-        href="https://www.lexjet.com"
-        class="btn-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+    <div class="lexjet-nav">
+      <a href="https://www.lexjet.com" class="btn-link" target="_blank" rel="noopener noreferrer">
         SHOP LEXJET.COM
       </a>
 
       <!-- Hide below 600px -->
-      <a
-        href="tel:8004539538"
-        class="btn-link [@media(max-width:599px)]:hidden"
-      >
+      <a href="tel:8004539538" class="btn-link hide-mobile">
         800-453-9538
       </a>
 
-      <a
-        href="https://www.lexjet.com"
-        class="btn-link [@media(max-width:599px)]:hidden"
-      >
+      <a href="https://www.lexjet.com" class="btn-link hide-mobile">
         CONTACT US
       </a>
     </div>
