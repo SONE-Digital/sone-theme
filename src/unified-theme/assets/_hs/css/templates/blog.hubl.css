@@ -411,11 +411,11 @@ a:hover {
 }
 
 /* Social Icons */
-.hs-elevate-blog-post-social-sharing svg {
+.hs-elevate-social-share svg {
   fill: #007BFF !important;
 }
 
-.hs-elevate-blog-post-social-sharing a:hover svg {
+.hs-elevate-social-share a:hover svg {
   fill: #0056b3 !important;
 }
 
