@@ -63,11 +63,24 @@ cd src/unified-theme && npm run start    # direct command
 ### Building & Deployment
 
 #### Mockup to Live Deployment
-```bash
-# Convert mockup HTML to HubSpot templates (run from main project root)
-npm run mock
+**IMPORTANT: ALWAYS run deployment from the mockup directory!**
 
-# Complete deployment: convert mockup → commit → push
+```bash
+# CORRECT: Deploy from mockup directory
+cd mockup && npm run deploy-mockup
+
+# This will:
+# 1. Build mockup CSS
+# 2. Convert mockup HTML to HubSpot HubL templates
+# 3. Build Vite assets
+# 4. Sync components and CSS
+# 5. Commit and push to the current branch
+```
+
+**DO NOT run these commands from project root for mockup deployment:**
+```bash
+# ❌ WRONG - Don't use these for mockup deployment
+npm run mock
 npm run deploy-project
 ```
 
@@ -167,6 +180,7 @@ Each theme module follows this structure:
 - **Mockup Server**: Always runs on http://127.0.0.1:3001 via `npm run run-mockup`
 - **Template Conversion**: `run-mock.js` converts mockup HTML to HubSpot HubL templates
 - **Deployment Flow**: Mockup → Test → Deploy to Live → Upload to HubSpot
+- **CRITICAL - Deployment Command**: ALWAYS run `cd mockup && npm run deploy-mockup` (from mockup directory, NOT project root!)
 - The project uses a dual package.json setup (root + theme directory + mockup directory)
 - Development server must be started from the unified-theme directory for live theme work
 - Build outputs are processed through custom HubL PostCSS cleaner
@@ -245,9 +259,10 @@ export const defaultModuleConfig = {
    - Live uses: `{{ get_asset_url('../images/filename.png') }}`
 
 ### Critical Deployment Notes
-- **Always deploy from mockup package.json**: User specified to use `cd mockup && npm run deploy-project`
+- **ALWAYS deploy from mockup directory**: Use `cd mockup && npm run deploy-mockup` (NOT from project root!)
 - **Site-specific layouts required**: Each brand needs its own layout file for proper CSS loading
 - **Branch-based deployment**: Each brand deploys to its own branch (lexjet, digiprint, etc.)
+- **Deployment process**: The `deploy-mockup` script handles: CSS build → mockup conversion → Vite build → component sync → git commit → git push
 
 ### Field Generation Process
 For new React modules, the field generation process requires:
