@@ -354,9 +354,9 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
   background-color: #007BFF !important;
   color: #ffffff !important;
 }
-/* Social Icons */
+/* Social Icons - White icons on blue circles */
 .hs-elevate-social-share svg {
-  fill: #007BFF !important;
+  fill: #ffffff !important;
 }
 .hs-elevate-social-share a {
   background-color: #007BFF !important;
@@ -365,9 +365,6 @@ body .hs-elevate-blog-recent-posts .hs-elevate-card--recent-post__link:hover {
 .hs-elevate-social-share a:hover {
   background-color: #0056b3 !important;
   border-color: #0056b3 !important;
-}
-.hs-elevate-social-share a:hover svg {
-  fill: #ffffff !important;
 }
 /* Blog Comment Form Input Fields Styling */
 .hs-elevate-blog-comments-container input[type="text"],
