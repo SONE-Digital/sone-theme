@@ -10,242 +10,6 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    .hero-section {
-      position: relative;
-      background-image: url('/src/unified-theme/images/lexjet/lexjet-pu-2024.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-
-    .hero-section > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-section h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .hero-section .lead {
-      font-size: 1.25rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .specials-section {
-      padding: 60px 0;
-      background-color: #fff;
-    }
-
-    .specials-section h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #333;
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .special-item {
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 0;
-      margin-bottom: 20px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      text-decoration: none;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 20px;
-      color: inherit;
-      overflow: hidden;
-    }
-
-    .special-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,123,255,0.15);
-      border-color: #007BFF;
-      text-decoration: none;
-    }
-
-    .special-item:hover .product-name {
-      color: #007BFF;
-    }
-
-    .product-thumbnail {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .product-thumbnail-small {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
-      flex-shrink: 0;
-      padding: 10px;
-    }
-
-    .product-content {
-      flex: 1;
-      padding: 20px 24px 20px 0;
-    }
-
-    .special-item h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-    }
-
-    @media (max-width: 640px) {
-      .special-item {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .product-thumbnail {
-        width: 100%;
-        height: 200px;
-      }
-
-      .product-thumbnail-small {
-        width: 100%;
-        height: 200px;
-        object-fit: contain;
-        padding: 20px;
-      }
-
-      .product-content {
-        padding: 15px 20px 20px 20px;
-      }
-
-      .special-item h3 {
-        margin-bottom: 10px;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .special-item h3 i {
-        display: none;
-      }
-
-      .special-item div {
-        text-align: center;
-      }
-
-      .coupon-code {
-        margin-top: 16px;
-      }
-    }
-
-    .special-item h3 i {
-      color: #007BFF;
-      font-size: 1rem;
-      margin-top: 4px;
-      flex-shrink: 0;
-    }
-
-    .product-name {
-      color: #000;
-      transition: color 0.2s ease;
-      padding: 0;
-      margin: 0;
-    }
-
-    .discount-badge {
-      display: inline-block;
-      background-color: #007BFF;
-      color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.875rem;
-      margin-right: 12px;
-    }
-
-    .coupon-code {
-      display: inline-block;
-      background-color: #e3f2fd;
-      color: #000;
-      border: 1px solid #007BFF;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.875rem;
-      font-family: monospace;
-      margin-top: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      position: relative;
-    }
-
-    .coupon-code:hover {
-      background-color: #bbdefb;
-    }
-
-    .coupon-code.copied {
-      background-color: #4caf50;
-      color: white;
-      border-color: #4caf50;
-    }
-
-    .no-coupon {
-      color: #000;
-      font-weight: 600;
-      font-size: 0.875rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-section .lead {
-        font-size: 1.125rem;
-      }
-
-      .specials-section h2 {
-        font-size: 2rem;
-      }
-
-      footer .w-full {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      footer .text-right {
-        text-align: center !important;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -303,225 +67,225 @@
 <!-- /COMPONENT:header -->
 
 <!-- Hero Section -->
-<section class="hero-section">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h1>Experience Every Dimension</h1>
-    <p class="lead">
+<section class="relative w-full h-[320px] md:h-[350px] lg:h-[450px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-white text-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/src/unified-theme/images/lexjet/printing-united.jpg.png');">
+  <div class="max-w-[1200px] mx-auto px-4 relative z-10">
+    <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 drop-shadow-md">Experience Every Dimension</h1>
+    <p class="text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
       The savings start at Printing United! LexJet's exclusive show specials are live from <strong>October 22–31, 2025</strong>. Shop and save on top print media while it lasts!
     </p>
   </div>
 </section>
 
 <!-- Specials Section -->
-<section class="specials-section">
+<section class="bg-white py-16">
   <div class="max-w-[1200px] mx-auto px-4">
-    <h2>Save even more with limited time show-stopping specials!</h2>
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#333] text-center mb-12">Save even more with limited time show-stopping specials!</h2>
 
-    <div>
+    <div class="space-y-5">
 
-        <!-- ARLON DPF 2400XLP -->
-        <a href="https://www.lexjet.com/en/arlon-dpf-2400xlp-5-mil-reflective-film-w-repositionable-psa-lp-x-scape-technology" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00420/0042097_arlon-dpf-2400xlp-5-mil-reflective-film-w-repositionable-psa-lp-x-scape-technology.jpeg" alt="ARLON DPF 2400XLP" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">ARLON DPF 2400XLP 5 Mil Reflective Film w/ Repositionable PSA & LP X-Scape Technology®</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- ARLON DPF 2400XLP -->
+      <a href="https://www.lexjet.com/en/arlon-dpf-2400xlp-5-mil-reflective-film-w-repositionable-psa-lp-x-scape-technology" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00420/0042097_arlon-dpf-2400xlp-5-mil-reflective-film-w-repositionable-psa-lp-x-scape-technology.jpeg" alt="ARLON DPF 2400XLP" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">ARLON DPF 2400XLP 5 Mil Reflective Film w/ Repositionable PSA & LP X-Scape Technology®</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- ARLON DPF 4600GLX/MLX -->
-        <a href="https://www.lexjet.com/en/arlon-dpf-4600glx-adhesive-vinyl" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00420/0042003_arlon-dpf-4600glxmlx-32-mil-film-w-permanent-psa-lp-x-scape-technology.jpeg" alt="ARLON DPF 4600GLX/MLX" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">ARLON DPF 4600GLX/MLX 3.2 Mil Film w/ Permanent PSA & LP X-Scape Technology®</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- ARLON DPF 4600GLX/MLX -->
+      <a href="https://www.lexjet.com/en/arlon-dpf-4600glx-adhesive-vinyl" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00420/0042003_arlon-dpf-4600glxmlx-32-mil-film-w-permanent-psa-lp-x-scape-technology.jpeg" alt="ARLON DPF 4600GLX/MLX" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">ARLON DPF 4600GLX/MLX 3.2 Mil Film w/ Permanent PSA & LP X-Scape Technology®</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- ARLON DPF Omni Wrap -->
-        <a href="https://www.lexjet.com/en/arlon-dpf-omni-wrap-2-mil-multi-surface-cast-vinyl-w-permanent-psa" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00420/0042098_arlon-dpf-omni-wrap-2-mil-multi-surface-cast-vinyl-w-permanent-psa.jpeg" alt="ARLON DPF Omni Wrap" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">ARLON DPF Omni Wrap 2 Mil Multi-Surface Cast Vinyl w/ Permanent PSA</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- ARLON DPF Omni Wrap -->
+      <a href="https://www.lexjet.com/en/arlon-dpf-omni-wrap-2-mil-multi-surface-cast-vinyl-w-permanent-psa" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00420/0042098_arlon-dpf-omni-wrap-2-mil-multi-surface-cast-vinyl-w-permanent-psa.jpeg" alt="ARLON DPF Omni Wrap" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">ARLON DPF Omni Wrap 2 Mil Multi-Surface Cast Vinyl w/ Permanent PSA</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- DreamScape Silver Flash -->
-        <a href="https://www.lexjet.com/en/dreamscape-silver-flash-20oz" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00285/0028546_20-oz-silver-flash.jpeg" alt="DreamScape Silver Flash" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">DreamScape™ Silver Flash 20oz</span>
-            </h3>
-            <div>
-              <span class="discount-badge">10% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- DreamScape Silver Flash -->
+      <a href="https://www.lexjet.com/en/dreamscape-silver-flash-20oz" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00285/0028546_20-oz-silver-flash.jpeg" alt="DreamScape Silver Flash" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">DreamScape™ Silver Flash 20oz</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">10% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Elements Baccara Blackback -->
-        <a href="https://www.lexjet.com/en/elements-baccara-blackback-luv-fabric" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00424/0042407_elements-baccara-blackback-fabric-luv.jpeg" alt="Elements Baccara Blackback" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">Elements Baccara Blackback LUV Fabric</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP on first roll</span>
-              <br>
-              <span class="coupon-code">Coupon code: FIRSTPRINT20</span>
-            </div>
+      <!-- Elements Baccara Blackback -->
+      <a href="https://www.lexjet.com/en/elements-baccara-blackback-luv-fabric" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00424/0042407_elements-baccara-blackback-fabric-luv.jpeg" alt="Elements Baccara Blackback" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">Elements Baccara Blackback LUV Fabric</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP on first roll</span>
+            <br class="sm:hidden">
+            <span class="inline-block bg-blue-100 text-black border border-primary px-4 py-2 rounded font-semibold text-sm font-mono mt-2 cursor-pointer transition-colors hover:bg-blue-200 coupon-code">Coupon code: FIRSTPRINT20</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Elements Chestnut Wallcovering -->
-        <a href="https://www.lexjet.com/en/elements-chestnut-wallcovering" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00406/0040674_elements-chestnut-wallcovering.jpeg" alt="Elements Chestnut Wallcovering" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">Elements Chestnut Wallcovering</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP on first roll</span>
-              <br>
-              <span class="coupon-code">Coupon code: FIRSTPRINT20</span>
-            </div>
+      <!-- Elements Chestnut Wallcovering -->
+      <a href="https://www.lexjet.com/en/elements-chestnut-wallcovering" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00406/0040674_elements-chestnut-wallcovering.jpeg" alt="Elements Chestnut Wallcovering" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">Elements Chestnut Wallcovering</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP on first roll</span>
+            <br class="sm:hidden">
+            <span class="inline-block bg-blue-100 text-black border border-primary px-4 py-2 rounded font-semibold text-sm font-mono mt-2 cursor-pointer transition-colors hover:bg-blue-200 coupon-code">Coupon code: FIRSTPRINT20</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Elements Durata Wallcovering -->
-        <a href="https://www.lexjet.com/en/elements-durata-wallcovering" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00406/0040624_elements-durata-wallcovering.jpeg" alt="Elements Durata Wallcovering" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">Elements Durata Wallcovering</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP on first roll</span>
-              <br>
-              <span class="coupon-code">Coupon code: FIRSTPRINT20</span>
-            </div>
+      <!-- Elements Durata Wallcovering -->
+      <a href="https://www.lexjet.com/en/elements-durata-wallcovering" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00406/0040624_elements-durata-wallcovering.jpeg" alt="Elements Durata Wallcovering" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">Elements Durata Wallcovering</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP on first roll</span>
+            <br class="sm:hidden">
+            <span class="inline-block bg-blue-100 text-black border border-primary px-4 py-2 rounded font-semibold text-sm font-mono mt-2 cursor-pointer transition-colors hover:bg-blue-200 coupon-code">Coupon code: FIRSTPRINT20</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Elements Kashmir Bright White -->
-        <a href="https://www.lexjet.com/en/elements-kashmir-bright-white-production-satin-canvas-suv" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00369/0036983_elements-kashmir-bright-white-production-satin-canvas-suv.jpeg" alt="Elements Kashmir Bright White" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">Elements Kashmir Bright White Production Satin Canvas SUV</span>
-            </h3>
-            <div>
-              <span class="discount-badge">25% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- Elements Kashmir Bright White -->
+      <a href="https://www.lexjet.com/en/elements-kashmir-bright-white-production-satin-canvas-suv" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00369/0036983_elements-kashmir-bright-white-production-satin-canvas-suv.jpeg" alt="Elements Kashmir Bright White" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">Elements Kashmir Bright White Production Satin Canvas SUV</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">25% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- GF 765 Rainbow Holographic -->
-        <a href="https://www.lexjet.com/en/general-formulations-765-rainbow-holographic-film" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00408/0040808_general-formulations-765-rainbow-holographic-film.png" alt="GF 765 Rainbow Holographic" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">General Formulations 765 Rainbow Holographic Film</span>
-            </h3>
-            <div>
-              <span class="discount-badge">10% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- GF 765 Rainbow Holographic -->
+      <a href="https://www.lexjet.com/en/general-formulations-765-rainbow-holographic-film" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00408/0040808_general-formulations-765-rainbow-holographic-film.png" alt="GF 765 Rainbow Holographic" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">General Formulations 765 Rainbow Holographic Film</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">10% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- GF 767 Sparkle Holographic -->
-        <a href="https://www.lexjet.com/en/general-formulations-767-sparkle-holographic-film" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00408/0040899_general-formulations-767-sparkle-holographic-film.jpeg" alt="GF 767 Sparkle Holographic" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">General Formulations 767 Sparkle Holographic Film</span>
-            </h3>
-            <div>
-              <span class="discount-badge">10% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- GF 767 Sparkle Holographic -->
+      <a href="https://www.lexjet.com/en/general-formulations-767-sparkle-holographic-film" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00408/0040899_general-formulations-767-sparkle-holographic-film.jpeg" alt="GF 767 Sparkle Holographic" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">General Formulations 767 Sparkle Holographic Film</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">10% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- GF 218 WindowMark -->
-        <a href="https://www.lexjet.com/en/general-formulations-218-windowmark-blockout" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00386/0038638_gf-218-windowmark-blockout.png" alt="GF 218 WindowMark" class="product-thumbnail-small">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">GF 218 WindowMark Blockout™</span>
-            </h3>
-            <div>
-              <span class="discount-badge">10% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- GF 218 WindowMark -->
+      <a href="https://www.lexjet.com/en/general-formulations-218-windowmark-blockout" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00386/0038638_gf-218-windowmark-blockout.png" alt="GF 218 WindowMark" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-contain flex-shrink-0 p-2.5">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">GF 218 WindowMark Blockout™</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">10% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Magnum Magnetics DigiMaxx -->
-        <a href="https://www.lexjet.com/en/magnum-magnetics-digimaxx-2" class="special-item" target="_blank">
-          <img src="https://www.lexjet.com/images/thumbs/00262/0026203_magnum-magnetics-digimaxx.jpeg" alt="Magnum Magnetics DigiMaxx" class="product-thumbnail">
-          <div class="product-content">
-            <h3>
-              <i class="fa-solid fa-tag"></i>
-              <span class="product-name">Magnum Magnetics DigiMaxx</span>
-            </h3>
-            <div>
-              <span class="discount-badge">20% Off MSRP</span>
-              <span class="no-coupon">No coupon required</span>
-            </div>
+      <!-- Magnum Magnetics DigiMaxx -->
+      <a href="https://www.lexjet.com/en/magnum-magnetics-digimaxx-2" class="flex flex-col sm:flex-row items-center gap-5 bg-white border border-gray-200 rounded-lg p-0 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary no-underline" target="_blank">
+        <img src="https://www.lexjet.com/images/thumbs/00262/0026203_magnum-magnetics-digimaxx.jpeg" alt="Magnum Magnetics DigiMaxx" class="w-full sm:w-[150px] h-[200px] sm:h-[150px] object-cover flex-shrink-0">
+        <div class="flex-1 px-6 py-5 sm:py-0 sm:pr-6">
+          <h3 class="flex items-start gap-2 text-xl font-semibold text-black mb-3 justify-center sm:justify-start">
+            <i class="fa-solid fa-tag text-primary text-base mt-1 hidden sm:block"></i>
+            <span class="transition-colors duration-200 hover:text-primary text-center sm:text-left">Magnum Magnetics DigiMaxx</span>
+          </h3>
+          <div class="text-center sm:text-left">
+            <span class="inline-block bg-primary text-white px-4 py-1.5 rounded-full font-semibold text-sm mr-3">20% Off MSRP</span>
+            <span class="inline-block text-black font-semibold text-sm">No coupon required</span>
           </div>
-        </a>
+        </div>
+      </a>
 
     </div>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section style="background-color: white; padding: 40px 0;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <div style="text-align: center; color: #333;">
-      <p style="font-size: 1.75rem; line-height: 1.6; margin: 0; font-weight: 500;">
-        Still can't decide? Talk to one of our printer experts today at <a href="tel:8004539538" style="color: #007BFF; text-decoration: none; font-weight: 600;">800-4-LEXJET</a>.
+<section class="bg-white py-10">
+  <div class="max-w-[1200px] mx-auto px-5">
+    <div class="text-center text-[#333]">
+      <p class="text-2xl md:text-3xl leading-relaxed m-0 font-medium">
+        Still can't decide? Talk to one of our printer experts today at <a href="tel:8004539538" class="text-primary no-underline font-semibold hover:underline">800-4-LEXJET</a>.
       </p>
     </div>
   </div>
 </section>
 
 <!-- EDGE Rewards Section -->
-<section style="background-color: #F5F5F5; padding: 60px 0;">
-  <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
-    <div style="text-align: center; color: #000;">
-      <p style="font-size: 1.5rem; line-height: 1.6; margin: 0; font-weight: 500;">
+<section class="bg-gray-100 py-16">
+  <div class="max-w-[900px] mx-auto px-10">
+    <div class="text-center text-black">
+      <p class="text-xl md:text-2xl leading-relaxed m-0 font-medium">
         Become an EDGE rewards member today and earn points on your purchases on lamination, media, ink, printers, and more from all the trusted brands you know and love.
       </p>
     </div>
@@ -529,8 +293,8 @@
 </section>
 
 <!-- COMPONENT:footer -->
-<footer class="bg-primary py-5 h-[164px] flex items-center px-[30px]">
-  <div class="w-full flex items-center justify-between flex-wrap gap-5">
+<footer class="bg-primary py-5 min-h-[164px] flex items-center px-[30px]">
+  <div class="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-5">
     <!-- Logo -->
     <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
       <img
@@ -541,7 +305,7 @@
     </a>
 
     <!-- Copyright -->
-    <div class="text-white text-sm text-right leading-relaxed">
+    <div class="text-white text-sm text-center md:text-right leading-relaxed">
       Copyright © 2025 LexJet - Inkjet Printers, Media, Ink Cartridges and More. All rights reserved.
     </div>
   </div>
@@ -568,12 +332,14 @@
 
           // Show "Copied to clipboard" message
           couponElement.textContent = 'Copied to clipboard!';
-          couponElement.classList.add('copied');
+          couponElement.classList.remove('bg-blue-100', 'hover:bg-blue-200', 'border-primary');
+          couponElement.classList.add('bg-green-500', 'text-white', 'border-green-500');
 
           // Reset after 2 seconds
           setTimeout(function() {
             couponElement.textContent = originalText;
-            couponElement.classList.remove('copied');
+            couponElement.classList.remove('bg-green-500', 'text-white', 'border-green-500');
+            couponElement.classList.add('bg-blue-100', 'hover:bg-blue-200', 'border-primary');
           }, 2000);
         }).catch(function(err) {
           console.error('Failed to copy:', err);
