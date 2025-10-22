@@ -66,8 +66,18 @@
 </header>
 <!-- /COMPONENT:header -->
 
-<!-- Hero Section -->
-<section class="relative w-full h-[320px] md:h-[350px] lg:h-[450px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-white text-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://marketing.lexjet.com/hubfs/printing-united-2025.png');">
+<!-- Hero Section with Video Background -->
+<section class="relative w-full h-[320px] md:h-[350px] lg:h-[450px] flex items-center justify-center text-white text-center overflow-hidden">
+  <!-- Video Background - MUTED -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://4826009.fs1.hubspotusercontent-na1.net/hubfs/4826009/Printing%20United%202025/Printing%20United%202025.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark overlay for better text readability -->
+  <div class="absolute inset-0 bg-black bg-opacity-65"></div>
+
+  <!-- Content -->
   <div class="max-w-[1200px] mx-auto px-4 relative z-10">
     <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 drop-shadow-md">Experience Every Dimension</h1>
     <p class="text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
