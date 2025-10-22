@@ -1,7 +1,7 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Lexjet Printing United 2025
+  label: Lexjet Printing United 2025 Video
 -->
 
 {% extends "./layouts/lexjet.hubl.html" %}
@@ -9,11 +9,91 @@
 {% block body %}
 
 
-{% include "./partials/header.hubl.html" %}
+<!-- COMPONENT:header - Hidden on mobile -->
+<header class="bg-white sticky top-0 z-50 shadow hidden md:block">
+  <!-- Divider line -->
+  <img
+    src="{{ get_asset_url('../images/lexjet/capital-equipment/divider-line.svg') }}"
+    alt="Divider line"
+    class="absolute bottom-0 left-0 w-full h-0.5"
+  />
 
-<!-- Hero Section -->
-<section class="relative w-full h-[500px] md:h-[350px] lg:h-[450px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-white text-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://marketing.lexjet.com/hubfs/printing-united-2025.png');">
-  <div class="max-w-[1200px] mx-auto px-4 relative z-10">
+  <div
+    class="mx-auto max-w-[1440px] h-[98px] flex items-center px-[10px] sm:px-8 md:px-16 relative"
+  >
+    <!-- Logo -->
+    <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
+      <img
+        src="{{ get_asset_url('../images/lexjet/lexjet-logo.png') }}"
+        alt="LexJet Logo"
+        class="w-[131px] h-8 object-cover"
+      />
+    </a>
+
+    <!-- Navigation -->
+    <div
+      class="ml-auto flex space-x-6 text-h13 tracking-[0.28px] text-[#232323] whitespace-nowrap"
+    >
+      <a
+        href="https://www.lexjet.com"
+        class="btn-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        SHOP LEXJET.COM
+      </a>
+
+      <!-- Hide below 600px -->
+      <a
+        href="tel:8004539538"
+        class="btn-link [@media(max-width:599px)]:hidden"
+      >
+        800-453-9538
+      </a>
+
+      <a
+        href="https://www.lexjet.com"
+        class="btn-link [@media(max-width:599px)]:hidden"
+      >
+        CONTACT US
+      </a>
+    </div>
+  </div>
+</header>
+<!-- /COMPONENT:header -->
+
+<!-- Hero Section with Video Background -->
+<section class="relative w-full h-screen md:h-[350px] lg:h-[450px] flex items-center justify-center text-white text-center overflow-hidden">
+  <!-- Video Background - MUTED, pre-cropped -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://4826009.fs1.hubspotusercontent-na1.net/hubfs/4826009/Printing%20United%202025/printing-united-2025.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark overlay for better text readability -->
+  <div class="absolute inset-0 bg-black bg-opacity-65"></div>
+
+  <!-- Mobile Header Overlay - White logo and button -->
+  <div class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-6 md:hidden">
+    <a href="https://www.lexjet.com" target="_blank" rel="noopener noreferrer">
+      <img
+        src="{{ get_asset_url('../images/lexjet/lexjet-logo-white.png') }}"
+        alt="LexJet Logo"
+        class="w-[131px] h-8 object-cover"
+      />
+    </a>
+    <a
+      href="https://www.lexjet.com"
+      class="text-white text-sm font-semibold tracking-wider uppercase hover:opacity-80 transition-opacity"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      SHOP LEXJET
+    </a>
+  </div>
+
+  <!-- Content -->
+  <div class="max-w-[1200px] mx-auto px-8 md:px-4 relative z-10 -mt-20 md:mt-0">
     <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-6 drop-shadow-md">Experience Every Dimension</h1>
     <p class="text-lg md:text-xl max-w-[800px] mx-auto leading-relaxed">
       The savings start at Printing United! LexJet's exclusive show specials are live from <strong>October 22–31, 2025</strong>. Shop and save on top print media while it lasts!
